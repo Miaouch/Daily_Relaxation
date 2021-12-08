@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "cherry";
+    src: url(../font/cherryBomb-title.ttf);
+}
+
+@font-face {
+    font-family: "caviar";
+    src: url(../font/caviarDreams-text.ttf);
+}
+
+.title{
+    font-family: "cherry";
+    margin-bottom: 10%;
+}
+
+.text{
+    font-family: "caviar";
+    font-size:x-large;
+}
+
+html{
+  width: auto;
+  height:5000px;
+  color:white;
+  display:flex;
+}
+
+body{
+    background-image: linear-gradient(to bottom, #000000, #361360, #4d1491, #630fc7, #7a00ff);
+    width: 100%;
+    margin:3% 20%;
+    padding:0;
+    
+    text-align: center;
+}
+
+nav > ul {
+    display:flex;
+    width: 100%;
+    list-style: none;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+nav > ul > li {
+    padding-right:5%;
+    font-size:x-large;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: white;
+}
