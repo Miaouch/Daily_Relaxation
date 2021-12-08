@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SphereBehavior : MonoBehaviour
+public class ChatsBehavior : MonoBehaviour
 {
     [HideInInspector]
     public LevelManager manager;
@@ -16,11 +16,11 @@ public class SphereBehavior : MonoBehaviour
     void Start()
     {
         float seconds = Random.Range(3f, 5f);
-        Destroy(gameObject, seconds);        
+        //Destroy(gameObject, seconds);        
     }
 
     private void OnDestroy() {
-        manager.RemoveCube(gameObject);
+        //manager.RemoveCube(gameObject);
     }
 
     private void OnMouseDown() {
