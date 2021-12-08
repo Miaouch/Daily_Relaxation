@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public Vector3 randomZone = Vector3.one * 5;
     public GameObject greyPrefab;
     public GameObject bluePrefab;
+    public GameObject cube;
 
     private int cubeNbr = 1;
     private int nCubes = 0;
@@ -21,8 +22,12 @@ public class LevelManager : MonoBehaviour
     private float popTimer = 1f;
     private float popRateTimer = 5f;
 
-    private void Start() {
+    public Vector3 speed = Vector3.zero;
+    public Vector3 deplacement;
 
+    private void Start() 
+    {
+        speed = new Vector3(0, 0, -10);
     }
 
     private void Update() {
@@ -30,22 +35,24 @@ public class LevelManager : MonoBehaviour
         popRateTimer -= Time.deltaTime;
 
         if (popTimer <= 0f) {
-            PopCubes();
+            //PopCubes();
+            PopCube();
             popTimer = 1f;
         }
         if (popRateTimer <= 0f) {
             cubeNbr++;
             popRateTimer = 5f;
         }
-
+        deplacement = speed * Time.deltaTime;
+        cube.transform.position += deplacement;
     }
 
 
-    private void PopCubes() {
-        for (int n = 0; n < cubeNbr; n++) {
-            PopCube();
-        }
-    }
+    //private void PopCubes() {
+    //    for (int n = 0; n < cubeNbr; n++) {
+    //        PopCube();
+    //    }
+    //}
 
     private void PopCube() {
 
@@ -57,7 +64,7 @@ public class LevelManager : MonoBehaviour
 
         Vector3 position = new Vector3(x, y, z);
 
-        GameObject cube;
+        
 
         if (Random.Range(0, 5) == 0) {
             cube = Instantiate(
@@ -83,4 +90,5 @@ public class LevelManager : MonoBehaviour
         }
         nCubes--;
     }
+
 }
