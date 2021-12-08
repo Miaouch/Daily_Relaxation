@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    public static int dimensionZone = 10;
+    public static int dimensionZone = 20;
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
     public GameObject bluePrefab;
@@ -30,9 +30,6 @@ public class LevelManager : MonoBehaviour
         popTimer -= Time.deltaTime;
         popRateTimer -= Time.deltaTime;
     
-
-        
-
         if(nChats<=15)
         {
             PopChats();
