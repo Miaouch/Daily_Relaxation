@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4834760258007911278}
   - component: {fileID: 502231173569494979}
   - component: {fileID: 1025205876200101647}
+  - component: {fileID: -295846608424983599}
   m_Layer: 0
   m_Name: GreySphere
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5590684065538849914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -39.928726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: de680018a2763434e9ca99065f49b8b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,5 +110,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  clicked: 0
   value: 1
+--- !u!114 &-295846608424983599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590684065538849914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5fe1531d41a0489e07549e0b8d842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
+  highLightMaterial: {fileID: 2100000, guid: a2f371fd87bad3741b23cadcc83d90a1, type: 2}

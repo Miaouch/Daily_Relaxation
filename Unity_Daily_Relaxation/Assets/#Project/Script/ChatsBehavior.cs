@@ -6,8 +6,7 @@ public class ChatsBehavior : MonoBehaviour
 {
     [HideInInspector]
     public LevelManager manager;
-    [HideInInspector]
-    public bool clicked = false;
+    
 
     public int value = 1;
     
@@ -23,9 +22,5 @@ public class ChatsBehavior : MonoBehaviour
         //manager.RemoveCube(gameObject);
     }
 
-    private void OnMouseDown() {
-        clicked = true;
-        Destroy(gameObject);
-    }
 
 }
