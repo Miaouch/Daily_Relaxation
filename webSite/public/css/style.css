@@ -31,6 +31,14 @@ body{
     padding:0;
     text-align: center;
 }
+.logo{
+    float: left;
+    margin-top: -4%;
+    width: 10%;
+    align-content: flex-start;
+    position: absolute;
+    margin-left: -30%;
+}
 
 nav > ul {
     display:flex;
@@ -38,6 +46,7 @@ nav > ul {
     list-style: none;
     justify-content: center;
     margin-bottom: 10%;
+    margin-top:3%;
 }
 
 nav > ul > li {
