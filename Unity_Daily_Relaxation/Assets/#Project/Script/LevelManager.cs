@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
 
     private int chatNbr = 1;
     private int nChats = 0;
+    public GameObject greyChat;
+    public GameObject blueChat;
 
 
 
@@ -21,6 +23,8 @@ public class LevelManager : MonoBehaviour
 
     private float popTimer = 1f;
     private float popRateTimer = 5f;
+
+    
 
     private void Start() {
 
@@ -62,31 +66,38 @@ public class LevelManager : MonoBehaviour
 
         Vector3 position = new Vector3(x, y, z);
 
-        GameObject chat;
 
         if (Random.Range(0, 5) == 0) {
-            chat = Instantiate(
+            blueChat = Instantiate(
                 bluePrefab, position, Quaternion.identity);
         }
         else {
-            chat = Instantiate(
+            greyChat = Instantiate(
                 greyPrefab, position, Quaternion.identity);
         }
-        chat.GetComponent<ChatsBehavior>().manager = this;
+
+        blueChat.GetComponent<ChatsBehavior>().manager = this;
+        greyChat.GetComponent<ChatsBehavior>().manager = this;
         nChats++;
     }
 
     public void SelectionChat(GameObject chat) {
-        ChatsBehavior chatsBehavior = chat.GetComponent<ChatsBehavior>();
-        if (chatsBehavior.clicked) {
-            // score += chatsBehavior.value;
-            // if (score >= scoreMax) whenPlayerWins?.Invoke();
+        ChatsHighLight chatHighLight = chat.GetComponent<ChatsHighLight>();
+        if(chatHighLight.clicked)
+        {
+            // change de couleur apres un certain temps
+        }
+
+        // ChatsBehavior chatsBehavior = chat.GetComponent<ChatsBehavior>();
+        // if (chatsBehavior.clicked) {
+        //     // score += chatsBehavior.value;
+        //     // if (score >= scoreMax) whenPlayerWins?.Invoke();
             
-        }
-        else {
-            // score -= chatsBehavior.value;
-            // if (score < 0) whenPlayerLose?.Invoke();
-        }
+        // }
+        // else {
+        //     // score -= chatsBehavior.value;
+        //     // if (score < 0) whenPlayerLose?.Invoke();
+        // }
         nChats--;
     }
 }
