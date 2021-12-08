@@ -14,33 +14,44 @@ public class LevelManager : MonoBehaviour
 
     private int chatNbr = 1;
     private int nChats = 0;
+    private int nBlueChat=0;
     public GameObject greyChat;
     public GameObject blueChat;
-
+    public UnityEvent whenBlueChatTransformInGrey;
 
 
     public UnityEvent whenPlayerWins;
     public UnityEvent whenPlayerLose;
 
-    private float popTimer = 1f;
-    private float popRateTimer = 5f;
+    private float timerRealChat=5f;
+    // private float popTimer = 1f;
+    // private float popRateTimer = 5f;
 
     public Vector3 speed = Vector3.zero;
     public Vector3 deplacement;
 
     private void Start() 
     {
-        speed = new Vector3(0, 0, -10);
+        speed = new Vector3(0, 0, -10);        
     }
 
     private void Update() {
-        popTimer -= Time.deltaTime;
-        popRateTimer -= Time.deltaTime;
-    
+
+        timerRealChat -= Time.deltaTime;
+
+        // popTimer -= Time.deltaTime;
+        // popRateTimer -= Time.deltaTime;
         if(nChats<=15)
         {
             PopChats();
         }
+
+        if(timerRealChat <= 0)
+        {
+            Debug.Log("change color");
+            whenBlueChatTransformInGrey?.Invoke();
+        }
+        
         // if (popTimer <= 0f) {
         //     PopCubes();
         //     popTimer = 1f;
@@ -51,7 +62,6 @@ public class LevelManager : MonoBehaviour
         // }
         deplacement = speed * Time.deltaTime;
         cube.transform.position += deplacement;
-
     }
 
 
@@ -72,17 +82,22 @@ public class LevelManager : MonoBehaviour
         Vector3 position = new Vector3(x, y, z);
 
 
-        if (Random.Range(0, 5) == 0) {
+        // if (Random.Range(0, 5) == 0) {
+        if (nBlueChat <=3) {
             blueChat = Instantiate(
                 bluePrefab, position, Quaternion.identity);
+            blueChat.GetComponent<ChatsBehavior>().manager = this;
+            nBlueChat++;
+            
         }
         else {
             greyChat = Instantiate(
                 greyPrefab, position, Quaternion.identity);
+            greyChat.GetComponent<ChatsBehavior>().manager = this;
         }
 
-        blueChat.GetComponent<ChatsBehavior>().manager = this;
-        greyChat.GetComponent<ChatsBehavior>().manager = this;
+
+
         nChats++;
     }
 
