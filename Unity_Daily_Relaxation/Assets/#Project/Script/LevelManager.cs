@@ -13,10 +13,7 @@ public class LevelManager : MonoBehaviour
     private int cubeNbr = 1;
     private int nCubes = 0;
 
-    [HideInInspector]
-    public int score = 0;
 
-    public int scoreMax = 30;
 
     public UnityEvent whenPlayerWins;
     public UnityEvent whenPlayerLose;
@@ -77,12 +74,12 @@ public class LevelManager : MonoBehaviour
     public void RemoveCube(GameObject cube) {
         SphereBehavior sphereBehavior = cube.GetComponent<SphereBehavior>();
         if (sphereBehavior.clicked) {
-            score += sphereBehavior.value;
-            if (score >= scoreMax) whenPlayerWins?.Invoke();
+            // score += sphereBehavior.value;
+            // if (score >= scoreMax) whenPlayerWins?.Invoke();
         }
         else {
-            score -= sphereBehavior.value;
-            if (score < 0) whenPlayerLose?.Invoke();
+            // score -= sphereBehavior.value;
+            // if (score < 0) whenPlayerLose?.Invoke();
         }
         nCubes--;
     }
