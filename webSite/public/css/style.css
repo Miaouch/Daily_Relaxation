@@ -103,9 +103,11 @@ nav > ul > li > a {
 }
 
 .we{
+    margin-top:10%;
     margin-bottom: 20%;
 }
 
 .copyRight{
     margin-top: 40%;
+    font-size:x-large;
 }
