@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
     public GameObject bluePrefab;
+    public GameObject cube;
 
     private int chatNbr = 1;
     private int nChats = 0;
@@ -22,8 +23,12 @@ public class LevelManager : MonoBehaviour
     private float popTimer = 1f;
     private float popRateTimer = 5f;
 
-    private void Start() {
+    public Vector3 speed = Vector3.zero;
+    public Vector3 deplacement;
 
+    private void Start() 
+    {
+        speed = new Vector3(0, 0, -10);
     }
 
     private void Update() {
@@ -42,6 +47,8 @@ public class LevelManager : MonoBehaviour
         //     chatNbr++;
         //     popRateTimer = 5f;
         // }
+        deplacement = speed * Time.deltaTime;
+        cube.transform.position += deplacement;
 
     }
 
@@ -89,4 +96,5 @@ public class LevelManager : MonoBehaviour
         }
         nChats--;
     }
+
 }
