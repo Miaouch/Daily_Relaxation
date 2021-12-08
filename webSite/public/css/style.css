@@ -17,105 +17,80 @@
     font-size:x-large;
 }
 
-html{
-  width: auto;
-  height:3700px;
-  color:white;
-  display:flex;
+*{
+    margin:0;
+    padding:0;
 }
+
 
 body{
-    background-image: linear-gradient(to bottom, #000000, #361360, #4d1491, #630fc7, #7a00ff);
+    background-image: linear-gradient(to bottom, #000000, #170d22, #301157, #471881, #4a1286);
     width: 100%;
-    margin:3% 10%;
-    padding:0;
     text-align: center;
-}
-.logo{
-    float: left;
-    margin-top: -4%;
-    width: 10%;
-    align-content: flex-start;
-    position: absolute;
-    margin-left: -30%;
+    color:white;
+    
 }
 
-nav > ul {
-    display:flex;
+.containerBody{
     width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+nav{
+    top: 0;
+    position:fixed;
+    z-index: 1;
+    width: 100%;
+    display:flex;
+    height:15%;
+    font-size: x-large;
+    background-color: rgb(0,0,0,0.7);
+}
+
+nav ul {
+    display:flex;
     list-style: none;
+    position:absolute;
+    width: 100%;
     justify-content: center;
-    margin-bottom: 10%;
-    margin-top:3%;
+    align-content: center;
+    margin-top: 5%;
 }
 
-nav > ul > li {
-    padding-right:5%;
-    font-size:x-large;
-}
 
-nav > ul > li > a {
+nav ul li a {
+    margin: 2% 1rem;
+    padding: 1rem;
     text-decoration: none;
     color: white;
+    border-bottom: 4px solid transparent;
+    transition: padding-bottom .4s ease-in-out, border-color  .3s ease, color .2s;
 }
 
-.welcom{
-    margin-top:15%;
-    margin-bottom:10%;
+.logo{
+    float: left;
+    margin-top: -5%;
+    width: 10%;
+    margin-left: -4%;
+    position: absolute; 
 }
 
-.scroll{
-    margin-top:8%;
-    font-weight:bolder;
-    font-size:xx-large;
+nav ul li a:hover{
+    padding-bottom: 5px;
+    border-bottom-color: rgb(132, 0, 255);
+    color: rgb(132, 0, 255);
 }
 
-.arrow{
-    margin-bottom:20%;
-}
-
-.game{
-    border: 1px solid purple;
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
     width: 100%;
-    height:700px;
-}
-
-
-.gamePlayText{
-    margin-bottom:20%;
-}
-
-.question{
-    font-family: "Cherry";
-}
-
-.answer{
-    margin-bottom:15%;
-    font-family: "Caviar";
-    font-size: larger;
-}
-
-.containerQuestions{
-    display:grid;
-    grid-template-columns:30% 30% 30%;
-    grid-column-gap: 5%;
-}
-
-.answer1,.answer2,.answer3{
-    font-family: "Caviar";
-    margin-bottom:15%;
-}
-
-.answer2{
-    margin-top: 16%;
-}
-
-.we{
-    margin-top:10%;
-    margin-bottom: 20%;
-}
-
-.copyRight{
-    margin-top: 40%;
-    font-size:x-large;
+    height: 100vh;
+    scroll-snap-align: center;
 }
