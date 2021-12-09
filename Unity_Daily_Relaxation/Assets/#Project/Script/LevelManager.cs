@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     public float timerRealChat = 5f;
 
     public Vector3 randomSpeedDirection = Vector3.zero;
+    
 
     private void Start() 
     {
@@ -63,22 +64,20 @@ public class LevelManager : MonoBehaviour
             
             for(int n=0; n<=listChats.Count-1; n++)
             {
-                listChats[n].GetComponent<Renderer>();
-                if(listChats[n].name == "BlueSphere")
+                var miaoRenderer = listChats[n].GetComponent<Renderer>();
+                if(miaoRenderer == null)
                 {
-                    Debug.Log("Blue Sphere");
+                    Debug.Log("miao Renderer null");
                 }
-                // if(listChats[n].tag == "Blue Sphere")
-                // {
-                //     Debug.Log("BlueSphere");
-                // }
-                // if(GameObject.FindObjectsWithTag("BlueSphere")
-                // {
-                //     Debug.Log("Blue Sphere");
-                // }
-                // foreach(GameObject n in GameObject.FindObjectsWithTag("Blue"))
+                else{
+                    if(listChats[n].name == "BlueSphere")
+                    {
+                        Debug.Log("Blue Sphere");
+                        miaoRenderer.material = materialsChats[1];
+                        Debug.Log("material Chats grey"+ materialsChats[1]);
+                    }
 
-                
+                }
             }
         }
 
