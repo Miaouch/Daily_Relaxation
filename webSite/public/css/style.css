@@ -111,9 +111,30 @@ section{
     margin-top: 7%;
 }
 
+.gamePage{
+    margin-top:10%
+}
+
+.gamePage h1{
+    margin-bottom: 2%;
+    font-size: xx-large;
+}
+
 .game{
     border: 2px solid black;
-    height: 400px;
+}
+
+.gameInfo{
+    width: 80rem;
+    height: 550px;
+}
+
+.gameInfo summary{
+    font-size: larger;
+}
+
+.gameInfo p{
+    font-size: large;
 }
 
 .question{
