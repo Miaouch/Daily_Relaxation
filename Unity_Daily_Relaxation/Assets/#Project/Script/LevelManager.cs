@@ -15,17 +15,24 @@ public class LevelManager : MonoBehaviour
     public GameObject greyPrefab;
     public GameObject bluePrefab;
 
-    private int chatNbr = 1;
     private int nChats = 0;
     public GameObject greyChat;
     public GameObject blueChat;
+<<<<<<< HEAD
 
+=======
+    public UnityEvent whenBlueChatTransformInGrey;
+    public List<GameObject> listChats = new List<GameObject>();
+    public Material[] materialsChats;
+    public int listCount = 15;
+>>>>>>> master
 
 
     public UnityEvent whenPlayerWins;
     public UnityEvent whenPlayerLose;
 
 
+<<<<<<< HEAD
     private float popChatTimer = 5f;
 
     
@@ -41,9 +48,40 @@ public class LevelManager : MonoBehaviour
 
 
         if(nChats<=15)
+=======
+    public Vector3 speed = Vector3.zero;
+    public Vector3 deplacement;
+    public float speedFactor= -10;
+
+    public Vector3 randomSpeedDirection = Vector3.zero;
+
+    private void Start() 
+    {
+        
+        if(nChats<=15)
         {
             PopChats();
         }
+    }
+
+    private void Update() {
+        timerRealChat -= Time.deltaTime;
+
+        
+
+        for(int j=0; j<=listChats.Count-1; j++)
+>>>>>>> master
+        {
+            speed = Random.onUnitSphere * speedFactor;
+            
+            deplacement = speed * Time.deltaTime;
+
+            listChats[j].transform.position += deplacement;
+            // greyChat.transform.position += deplacement;
+
+            // blueChat.transform.position += deplacement;
+        }
+<<<<<<< HEAD
         // if (popTimer <= 0f) {
         //     PopCubes();
         //     popTimer = 1f;
@@ -55,24 +93,46 @@ public class LevelManager : MonoBehaviour
 
     }
 
+=======
+        
 
-    // private void PopChats() {
-    //     for (int n = 0; n < chatNbr; n++) {
-    //         PopChat();
-    //     }
-    // }
+
+        if(timerRealChat <= 0)
+        {
+            Debug.Log("change color");
+            whenBlueChatTransformInGrey?.Invoke();
+        }
+>>>>>>> master
+
+    }
 
     private void PopChats() {
 
         //if (nCubes >= 10) return;
+        
 
-        float x = Random.Range(0, randomZone.x);
-        float y = Random.Range(0, randomZone.y);
-        float z = Random.Range(0, randomZone.z);
+        for(int k=0; k<listCount; k++)
+        {
+            float x = Random.Range(0, randomZone.x);
+            float y = Random.Range(0, randomZone.y);
+            float z = Random.Range(0, randomZone.z);
 
-        Vector3 position = new Vector3(x, y, z);
+            Vector3 position = new Vector3(x, y, z);
+            
+            if (nBlueChat<=3)
+            {
+                GameObject blueChat = Instantiate(bluePrefab, position, Quaternion.identity);
+                listChats.Add(blueChat);
+                nBlueChat++;
+            }
 
+            GameObject greyChat = Instantiate(greyPrefab, position, Quaternion.identity);
+            listChats.Add(greyChat);
+            nChats++;
 
+        }
+
+<<<<<<< HEAD
 
         if (Random.Range(0, 5) == 0) {
             blueChat = Instantiate(
@@ -86,6 +146,29 @@ public class LevelManager : MonoBehaviour
         blueChat.GetComponent<ChatsBehavior>().manager = this;
         greyChat.GetComponent<ChatsBehavior>().manager = this;
         nChats++;
+=======
+        // if (Random.Range(0, 5) == 0) {
+        // if (nBlueChat <=3) {
+        //     blueChat = Instantiate(
+        //         bluePrefab, position, Quaternion.identity);
+        //     blueChat.GetComponent<ChatsBehavior>().manager = this;
+        //     nBlueChat++;
+            
+        //     blueChat.transform.position += deplacement;
+        // }
+        // else {
+        //     greyChat = Instantiate(
+        //         greyPrefab, position, Quaternion.identity);
+        //     greyChat.GetComponent<ChatsBehavior>().manager = this;
+        //     greyChat.transform.position += deplacement;
+        // }
+
+
+
+        // nChats++;
+
+       
+>>>>>>> master
     }
 
     public void SelectionChat(GameObject chat) {
