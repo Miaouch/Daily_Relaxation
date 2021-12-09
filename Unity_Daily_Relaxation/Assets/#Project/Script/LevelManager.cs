@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
     public ChatsHighLight chatsHighLight;
     public bool isHighlight = false;
     public float timeToRestart = 5f;
+    public bool miaoCanBeClicked=false;
     
 
     public int index;
@@ -47,6 +48,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start() 
     {
+        miaoCanBeClicked = false;
+        
 
         if (nChats <= 15)
         {
@@ -104,6 +107,7 @@ public class LevelManager : MonoBehaviour
                         Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
                         Debug.Log("material Chats grey"+ materialsChats[1]);
+                        miaoCanBeClicked = true;
                     }
                 }
             }
@@ -144,7 +148,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void DetectionDesChats()
+    public void DetectionDesChats()
     {
         howManyCorrect = 0;
 
@@ -159,7 +163,6 @@ public class LevelManager : MonoBehaviour
                 {
                     Debug.Log("yuppi blueChat");
                     howManyCorrect +=1;
-
                 }
                 else
                 {
@@ -168,19 +171,19 @@ public class LevelManager : MonoBehaviour
             }  
         }
     }
-    void CeckVictory()
+    public void CeckVictory()
     {
         if(howManyClick == 3)
         {
             if(howManyCorrect == 3)
             {
-                Debug.Log("how many correct " + howManyCorrect);
+                Debug.Log("how many correct (win)" + howManyCorrect);
                 Debug.Log("WIIIIIIN");
                 StartCoroutine(StartRestart());
             }
             else
             {
-                Debug.Log("how many correct " + howManyCorrect);
+                Debug.Log("how many correct (loose) " + howManyCorrect);
                 Debug.Log("LOOOSE");
                 StartCoroutine(StartRestart());
             }
