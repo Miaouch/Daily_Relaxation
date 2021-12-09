@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -36,8 +36,12 @@ public class LevelManager : MonoBehaviour
     public Vector3 randomSpeedDirection = Vector3.zero;
     public bool isClicked = false;
     public int howManyClick = 0;
+    public int howManyCorrect = 0;
+
+    GameObject[] chatsGameObjects;
     public ChatsHighLight chatsHighLight;
     public bool isHighlight = false;
+    public float timeToRestart = 5f;
     
 
     private void Start() 
@@ -49,13 +53,18 @@ public class LevelManager : MonoBehaviour
         }
 
         addSpeed();
+        // chatsGameObjects = UnityEngine.GameObject.FindeGameObjectsWithTag("Chat");
+        // //chatsHighLight = UnityEngine.GameObject.FindObjectsWithTag("Chat").getComponent<ChatsHighLight>();
 
-        
+        // if(chatsGameObjects.Length == 0)
+        // {
+        //     Debug.Log("Ohhh noooo!");
+        // }
+        // if(chatsHighLight==null)
+        // {
+        //     Debug.Log("Ohhh noooo!");
+        // }
 
-        if(chatsHighLight==null)
-        {
-            Debug.Log("Ohhh noooo!");
-        }
     }
 
     private void Update() {
@@ -83,9 +92,7 @@ public class LevelManager : MonoBehaviour
 
         if (timerRealChat <= 0)
         {
-            Debug.Log("change color");
-            //whenBlueChatTransformInGrey?.Invoke();
-            
+                       
             for(int n=0; n<=listChats.Count-1; n++)
             {
                 var miaoRenderer = listChats[n].GetComponent<Renderer>();
@@ -104,13 +111,10 @@ public class LevelManager : MonoBehaviour
             }
         }
         DetectionDesChats();
-        
+        CeckVictory();
     }
 
     private void PopChats() {
-
-        //if (nCubes >= 10) return;
-        
 
         for(int k=0; k<listCount; k++)
         {
@@ -133,9 +137,7 @@ public class LevelManager : MonoBehaviour
 
             nChats++;
         }
-
     }
-
     void addSpeed()
     {
         for (int s = 0; s <= listChats.Count; s++)
@@ -147,16 +149,57 @@ public class LevelManager : MonoBehaviour
 
     void DetectionDesChats()
     {
+        howManyCorrect = 0;
+
         for(int l = 0; l <= listChats.Count-1; l++)
         {
-            //var miaoBool = listChats[l].GetComponent<ChatsHighLight>();
+            var miaoBool = listChats[l].GetComponent<ChatsHighLight>();
 
-            if(isHighlight)
+            if(miaoBool.chatSelected)
             {
                 Debug.Log("the cat is highlight");
-            }
-            
+                if(listChats[l].name == "BlueChat")
+                {
+                    Debug.Log("yuppi blueChat");
+                    howManyCorrect +=1;
+
+                }
+                else
+                {
+                    Debug.Log("noooo greyChat");
+                }
+            }  
         }
+    }
+    void CeckVictory()
+    {
+        if(howManyClick == 3)
+        {
+            if(howManyCorrect == 3)
+            {
+                Debug.Log("how many correct " + howManyCorrect);
+                Debug.Log("WIIIIIIN");
+                StartCoroutine(StartRestart());
+            }
+            else
+            {
+                Debug.Log("how many correct " + howManyCorrect);
+                Debug.Log("LOOOSE");
+                StartCoroutine(StartRestart());
+            }
+        }
+    }
+
+    IEnumerator StartRestart()
+    {
+        Debug.Log("start the coroutine");
+        yield return new WaitForSeconds(timeToRestart);
+        Restart();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     

@@ -412,13 +412,16 @@ MonoBehaviour:
         m_CallState: 2
   speed: {x: 0, y: 0, z: 0}
   deplacement: {x: 0, y: 0, z: 0}
-  speedFactor: -5
+  speedFactor: -2
   timerRealChat: 5
   goodAnswer: 0
   randomSpeedDirection: {x: 0, y: 0, z: 0}
   isClicked: 0
   howManyClick: 0
+  howManyCorrect: 0
   chatsHighLight: {fileID: 0}
+  isHighlight: 0
+  timeToRestart: 5
 --- !u!4 &1856806990
 Transform:
   m_ObjectHideFlags: 0

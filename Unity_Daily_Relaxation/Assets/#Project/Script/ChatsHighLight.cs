@@ -11,6 +11,7 @@ public class ChatsHighLight : MonoBehaviour
     public Material highLightMaterial;
     
     public LevelManager levelManager;
+    public bool chatSelected = false;
     
     void Start()
     {
@@ -35,6 +36,8 @@ public class ChatsHighLight : MonoBehaviour
     public void Highlight()
     {
         miaoRenderer.material = highLightMaterial;
-        levelManager.isHighlight = true;
+        levelManager.isHighlight = true; //no
+        chatSelected = true;
+        
     }
 }
