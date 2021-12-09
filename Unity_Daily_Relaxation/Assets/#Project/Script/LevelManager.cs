@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour
     public float timerRealChat = 5f;
 
     public Vector3 randomSpeedDirection = Vector3.zero;
+    public bool isClicked = false;
+    public ChatsHighLight chatsHighLight;
     
 
     private void Start() 
@@ -38,6 +40,7 @@ public class LevelManager : MonoBehaviour
         {
             PopChats();
         }
+        chatsHighLight = GameObject.FindGameObjectWithTag("Chat").GetComponent<ChatsHighLight>();
     }
 
     private void Update() {
@@ -70,7 +73,7 @@ public class LevelManager : MonoBehaviour
                     Debug.Log("miao Renderer null");
                 }
                 else{
-                    if(listChats[n].name == "BlueSphere")
+                    if(listChats[n].name == "BlueChat")
                     {
                         Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
@@ -79,6 +82,10 @@ public class LevelManager : MonoBehaviour
 
                 }
             }
+        }
+        if (isClicked)
+        {
+
         }
 
     }
@@ -101,7 +108,7 @@ public class LevelManager : MonoBehaviour
                 GameObject blueChat = Instantiate(bluePrefab, position, Quaternion.identity);
                 listChats.Add(blueChat);
                 nBlueChat++;
-                blueChat.name = "BlueSphere";
+                blueChat.name = "BlueChat";
             }
 
             GameObject greyChat = Instantiate(greyPrefab, position, Quaternion.identity);
@@ -110,27 +117,6 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        // if (Random.Range(0, 5) == 0) {
-        // if (nBlueChat <=3) {
-        //     blueChat = Instantiate(
-        //         bluePrefab, position, Quaternion.identity);
-        //     blueChat.GetComponent<ChatsBehavior>().manager = this;
-        //     nBlueChat++;
-            
-        //     blueChat.transform.position += deplacement;
-        // }
-        // else {
-        //     greyChat = Instantiate(
-        //         greyPrefab, position, Quaternion.identity);
-        //     greyChat.GetComponent<ChatsBehavior>().manager = this;
-        //     greyChat.transform.position += deplacement;
-        // }
-
-
-
-        // nChats++;
-
-       
     }
 
     public void SelectionChat(GameObject chat) {

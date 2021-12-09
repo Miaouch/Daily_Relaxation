@@ -118,10 +118,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6513986391724219991}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16f5fe1531d41a0489e07549e0b8d842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
   highLightMaterial: {fileID: 2100000, guid: a2f371fd87bad3741b23cadcc83d90a1, type: 2}
+  levelManager: {fileID: 0}

@@ -6,14 +6,27 @@ public class ChatsHighLight : MonoBehaviour
 {
     [HideInInspector]
     public bool clicked = false;
-    private MeshRenderer meshRenderer;
+    private MeshRenderer miaoRenderer;
     private Material originalMaterial;
     public Material highLightMaterial;
     
+    public LevelManager levelManager;
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
-        originalMaterial = meshRenderer.material;
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+
+        if(levelManager == null)
+        {
+            Debug.Log("level manager null");
+        }
+        else
+        {
+            Debug.Log("level manager ok");
+        }
+        
+        
+        
+        miaoRenderer = levelManager.listChats[n].GetComponent<MeshRenderer>();
     }
 
     
@@ -23,14 +36,18 @@ public class ChatsHighLight : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        clicked = true;
+        levelManager.isClicked = true;
         //Destroy(gameObject);
-        Highlight();
+        // for(int n=0; n<=levelManager.listChats.Count-1; n++)
+        // {
+        //     Highlight();
+        // }
         
-
     }
     public void Highlight()
     {
-        meshRenderer.material = highLightMaterial;
+        
+        Debug.Log("Highlight???");
+        miaoRenderer.material = highLightMaterial;
     }
 }
