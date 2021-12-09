@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1227236405683346926}
   - component: {fileID: -2503921384157222526}
   - component: {fileID: 4284141099923345229}
+  - component: {fileID: 1208798038541306819}
   m_Layer: 0
   m_Name: BlueSphere
-  m_TagString: Untagged
+  m_TagString: BlueChat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6513986391724219991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.20244, y: -2.081347, z: 52.02879}
+  m_LocalPosition: {x: 0, y: 0, z: -125.18656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clicked: 0
   highLightMaterial: {fileID: 2100000, guid: a2f371fd87bad3741b23cadcc83d90a1, type: 2}
+--- !u!114 &1208798038541306819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513986391724219991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abf93fcaa1785a4cb3a19d18df60256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greyMaterial: {fileID: 2100000, guid: de680018a2763434e9ca99065f49b8b6, type: 2}
+  chatRenderer: {fileID: 6118361387395623235}
+  isAllTheSame: 1
