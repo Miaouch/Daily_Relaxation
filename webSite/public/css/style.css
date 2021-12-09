@@ -1,11 +1,11 @@
 @font-face {
     font-family: "cherry";
-    src: url(../font/cherryBomb-title.ttf);
+    src: url(../font/CherryBomb-Regular.ttf);
 }
 
 @font-face {
     font-family: "caviar";
-    src: url(../font/caviarDreams-text.ttf);
+    src: url(../font/CaviarDreams.ttf);
 }
 
 .title{
@@ -33,11 +33,11 @@ body{
 
 
 #home{
-    background-image: linear-gradient(to bottom, #88b8df, #88b8df);
+    background-image: linear-gradient(to bottom, #9ad2ff, #87b9e2);
 }
 
 #game{
-    background-image: linear-gradient(to bottom, #88b8df, #97adfe);
+    background-image: linear-gradient(to bottom, #81b8e6, #97adfe);
 }
 
 #informations{
@@ -109,9 +109,44 @@ section{
     scroll-snap-align: center;
 }
 
+.container{
+    overflow: overlay;
+    width: 85%;
+    float:left;
+    padding-top:10%;
+}
+
+.container img{
+    width: 20%;
+}
+
+.kittyGreyNormal{
+   padding-left: 40%;
+}
+.kittyBrownDown{
+    margin-left: -10%;
+    margin-top: 5%;
+}
+
+.kittyBrownLeft{
+    width: 90%;
+    padding-left: 38%;
+    padding-top: 25%;
+}
+
+.kittyGreyUp{
+    width: 30%;
+    padding-top: 30%;
+    padding-left: 4%;
+}
+
 .homePage, .gamePage{
     margin-left: 9%;
     margin-right: 9%;
+}
+
+.homePageContent{
+    padding-bottom: 20%;
 }
 
 .welcom{
