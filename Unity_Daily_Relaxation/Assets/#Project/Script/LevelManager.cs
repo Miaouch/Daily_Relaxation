@@ -51,9 +51,7 @@ public class LevelManager : MonoBehaviour
             deplacement = speed * Time.deltaTime;
 
             listChats[j].transform.position += deplacement;
-            // greyChat.transform.position += deplacement;
-
-            // blueChat.transform.position += deplacement;
+            
         }
         
 
@@ -61,7 +59,27 @@ public class LevelManager : MonoBehaviour
         if(timerRealChat <= 0)
         {
             Debug.Log("change color");
-            whenBlueChatTransformInGrey?.Invoke();
+            //whenBlueChatTransformInGrey?.Invoke();
+            
+            for(int n=0; n<=listChats.Count-1; n++)
+            {
+                listChats[n].GetComponent<Renderer>();
+                if(listChats[n].name == "BlueSphere")
+                {
+                    Debug.Log("Blue Sphere");
+                }
+                // if(listChats[n].tag == "Blue Sphere")
+                // {
+                //     Debug.Log("BlueSphere");
+                // }
+                // if(GameObject.FindObjectsWithTag("BlueSphere")
+                // {
+                //     Debug.Log("Blue Sphere");
+                // }
+                // foreach(GameObject n in GameObject.FindObjectsWithTag("Blue"))
+
+                
+            }
         }
 
     }
@@ -84,6 +102,7 @@ public class LevelManager : MonoBehaviour
                 GameObject blueChat = Instantiate(bluePrefab, position, Quaternion.identity);
                 listChats.Add(blueChat);
                 nBlueChat++;
+                blueChat.name = "BlueSphere";
             }
 
             GameObject greyChat = Instantiate(greyPrefab, position, Quaternion.identity);
@@ -135,31 +154,3 @@ public class LevelManager : MonoBehaviour
         nChats--;
     }
 }
-
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-
-
-// public class ChangePrefab : MonoBehaviour
-// {
-//     private Material originalMaterial;
-//     public Material greyMaterial;
-//     public Renderer chatRenderer;
-//     [HideInInspector]
-//     public bool isAllTheSame = false;
-
-//     private void Start()
-//     {
-//         chatRenderer = GetComponent<Renderer>();
-//         originalMaterial = chatRenderer.material;
-//     }
-
-//     public void AllTheSame()
-//     {
-//         Debug.Log("change color material");
-//         chatRenderer.material = greyMaterial;
-//         isAllTheSame = true;
-//     }
-// }
-

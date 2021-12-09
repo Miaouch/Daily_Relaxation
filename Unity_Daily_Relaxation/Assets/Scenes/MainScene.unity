@@ -371,7 +371,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   listChats: []
-  materialsChats: []
+  materialsChats:
+  - {fileID: 2100000, guid: 1168250e1348aed468202e6758f53f95, type: 2}
+  - {fileID: 2100000, guid: de680018a2763434e9ca99065f49b8b6, type: 2}
   listCount: 15
   whenPlayerWins:
     m_PersistentCalls:
