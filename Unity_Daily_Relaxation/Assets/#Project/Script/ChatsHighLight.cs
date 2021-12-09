@@ -26,7 +26,7 @@ public class ChatsHighLight : MonoBehaviour
         
         
         
-        miaoRenderer = levelManager.listChats[n].GetComponent<MeshRenderer>();
+        miaoRenderer = levelManager.GetComponent<MeshRenderer>();
     }
 
     
@@ -37,6 +37,7 @@ public class ChatsHighLight : MonoBehaviour
 
     private void OnMouseDown() {
         levelManager.isClicked = true;
+        Debug.Log("isClicked");
         //Destroy(gameObject);
         // for(int n=0; n<=levelManager.listChats.Count-1; n++)
         // {

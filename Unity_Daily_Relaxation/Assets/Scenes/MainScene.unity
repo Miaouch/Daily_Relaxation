@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 1856806989}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: LevelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,6 +398,8 @@ MonoBehaviour:
   speedFactor: -10
   timerRealChat: 5
   randomSpeedDirection: {x: 0, y: 0, z: 0}
+  isClicked: 0
+  chatsHighLight: {fileID: 0}
 --- !u!4 &1856806990
 Transform:
   m_ObjectHideFlags: 0
