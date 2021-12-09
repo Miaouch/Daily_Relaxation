@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
+
+    public ChatsBehavior[] chats;
+    public Material[] materialsChats;
+    public List<int> blueChats = new List<int>();
     public static int dimensionZone = 20;
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
@@ -21,8 +25,8 @@ public class LevelManager : MonoBehaviour
     public UnityEvent whenPlayerWins;
     public UnityEvent whenPlayerLose;
 
-    private float popTimer = 1f;
-    private float popRateTimer = 5f;
+
+    private float popChatTimer = 5f;
 
     
 
@@ -31,9 +35,11 @@ public class LevelManager : MonoBehaviour
     }
 
     private void Update() {
-        popTimer -= Time.deltaTime;
-        popRateTimer -= Time.deltaTime;
-    
+
+        popChatTimer -= Time.deltaTime;
+
+
+
         if(nChats<=15)
         {
             PopChats();
@@ -65,6 +71,7 @@ public class LevelManager : MonoBehaviour
         float z = Random.Range(0, randomZone.z);
 
         Vector3 position = new Vector3(x, y, z);
+
 
 
         if (Random.Range(0, 5) == 0) {
@@ -101,3 +108,31 @@ public class LevelManager : MonoBehaviour
         nChats--;
     }
 }
+
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+
+// public class ChangePrefab : MonoBehaviour
+// {
+//     private Material originalMaterial;
+//     public Material greyMaterial;
+//     public Renderer chatRenderer;
+//     [HideInInspector]
+//     public bool isAllTheSame = false;
+
+//     private void Start()
+//     {
+//         chatRenderer = GetComponent<Renderer>();
+//         originalMaterial = chatRenderer.material;
+//     }
+
+//     public void AllTheSame()
+//     {
+//         Debug.Log("change color material");
+//         chatRenderer.material = greyMaterial;
+//         isAllTheSame = true;
+//     }
+// }
+
