@@ -362,10 +362,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomZone: {x: 5, y: 5, z: 5}
-  greyPrefab: {fileID: 5590684065538849914, guid: ff1f966c09c413f469a04559b915afd8, type: 3}
+  greyPrefab: {fileID: 6513986391724219991, guid: f623c858aa100a84faba5467e4177551, type: 3}
   bluePrefab: {fileID: 6513986391724219991, guid: 4836d8933353cfa499b595511b3b87fb, type: 3}
-  greyChat: {fileID: 5590684065538849914, guid: ff1f966c09c413f469a04559b915afd8, type: 3}
+  nBlueChat: 0
+  greyChat: {fileID: 6513986391724219991, guid: f623c858aa100a84faba5467e4177551, type: 3}
   blueChat: {fileID: 6513986391724219991, guid: 4836d8933353cfa499b595511b3b87fb, type: 3}
+  whenBlueChatTransformInGrey:
+    m_PersistentCalls:
+      m_Calls: []
+  listChats: []
+  materialsChats: []
+  listCount: 15
   whenPlayerWins:
     m_PersistentCalls:
       m_Calls:
@@ -384,6 +391,11 @@ MonoBehaviour:
   whenPlayerLose:
     m_PersistentCalls:
       m_Calls: []
+  speed: {x: 0, y: 0, z: 0}
+  deplacement: {x: 0, y: 0, z: 0}
+  speedFactor: -10
+  timerRealChat: 5
+  randomSpeedDirection: {x: 0, y: 0, z: 0}
 --- !u!4 &1856806990
 Transform:
   m_ObjectHideFlags: 0
