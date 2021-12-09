@@ -28,6 +28,9 @@ body{
     width: 100%;
     text-align: center;
     color:white;
+    /* height: 1000px; */
+    overflow: hidden;
+    /* to hide 2 scrollbar  */
 }
 
 .containerBody{
