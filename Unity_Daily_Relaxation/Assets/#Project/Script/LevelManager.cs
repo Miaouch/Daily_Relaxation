@@ -16,7 +16,10 @@ public class LevelManager : MonoBehaviour
     public GameObject greyChat;
     public GameObject blueChat;
     public UnityEvent whenBlueChatTransformInGrey;
+
     public List<GameObject> listChats = new List<GameObject>();
+
+    public List<Vector3> speeds = new List<Vector3>();
     public Material[] materialsChats;
     public int listCount = 15;
 
@@ -32,42 +35,50 @@ public class LevelManager : MonoBehaviour
     public Vector3 deplacement;
     public float speedFactor= -10;
 
+    public bool goodAnswer=false;
+
     public Vector3 randomSpeedDirection = Vector3.zero;
 
     private void Start() 
     {
-        
-        if(nChats<=15)
+
+        if (nChats <= 15)
         {
             PopChats();
         }
+
+        addSpeed();
     }
 
     private void Update() {
         timerRealChat -= Time.deltaTime;
 
-        
-
-        for(int j=0; j<=listChats.Count-1; j++)
+        for (int j = 0; j <= listChats.Count - 1; j++)
         {
-            speed = Random.onUnitSphere * speedFactor;
-            
-            deplacement = speed * Time.deltaTime;
-
+            deplacement = speeds[j] * Time.deltaTime;
             listChats[j].transform.position += deplacement;
-            // greyChat.transform.position += deplacement;
+            greyChat.transform.position += deplacement;
 
-            // blueChat.transform.position += deplacement;
+            blueChat.transform.position += deplacement;
         }
-        
 
+        //for (int j = 0; j <= listChats.Count - 1; j++)
+        //{
+        //    speed = Random.onUnitSphere * speedFactor;
 
-        if(timerRealChat <= 0)
+        //    deplacement = speed * Time.deltaTime;
+
+        //    listChats[j].transform.position += deplacement;
+        //    // greyChat.transform.position += deplacement;
+
+        //    // blueChat.transform.position += deplacement;
+        //}
+
+        if (timerRealChat <= 0)
         {
             Debug.Log("change color");
             whenBlueChatTransformInGrey?.Invoke();
         }
-
     }
 
     private void PopChats() {
@@ -92,6 +103,7 @@ public class LevelManager : MonoBehaviour
 
             GameObject greyChat = Instantiate(greyPrefab, position, Quaternion.identity);
             listChats.Add(greyChat);
+
             nChats++;
 
         }
@@ -111,12 +123,16 @@ public class LevelManager : MonoBehaviour
         //     greyChat.GetComponent<ChatsBehavior>().manager = this;
         //     greyChat.transform.position += deplacement;
         // }
+        // nChats++;    
+    }
 
-
-
-        // nChats++;
-
-       
+    void addSpeed()
+    {
+        for (int s = 0; s <= listChats.Count; s++)
+        {
+            speed = Random.onUnitSphere * speedFactor;
+            speeds.Add(speed);                   
+        }
     }
 
     public void SelectionChat(GameObject chat) {
