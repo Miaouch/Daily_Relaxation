@@ -33,7 +33,7 @@ public class ChatsBehavior : MonoBehaviour
             //other.gameObject.GetComponent<ChatsBehavior>();
 
             manager.ChangeSpeed(other.gameObject.GetComponent<ChatsBehavior>().id);
-            Debug.Log("chat collision");
+            //Debug.Log("chat collision");
         }
 
     }
