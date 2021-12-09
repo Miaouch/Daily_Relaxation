@@ -5,15 +5,19 @@ using UnityEngine;
 public class ChatsHighLight : MonoBehaviour
 {
     [HideInInspector]
-    public bool clicked = false;
-    private MeshRenderer meshRenderer;
-    private Material originalMaterial;
+    
+    private MeshRenderer miaoRenderer;
+    //private Material originalMaterial;
     public Material highLightMaterial;
+    
+    public LevelManager levelManager;
+    public bool chatSelected = false;
     
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
-        originalMaterial = meshRenderer.material;
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        miaoRenderer = GetComponent<MeshRenderer>();
+
     }
 
     
@@ -23,14 +27,17 @@ public class ChatsHighLight : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        clicked = true;
-        //Destroy(gameObject);
-        Highlight();
-        
-
+        if(levelManager.howManyClick < 3)
+        {
+            levelManager.howManyClick +=1;
+            Highlight();
+        } 
     }
     public void Highlight()
     {
-        meshRenderer.material = highLightMaterial;
+        miaoRenderer.material = highLightMaterial;
+        levelManager.isHighlight = true; //no
+        chatSelected = true;
+        
     }
 }
