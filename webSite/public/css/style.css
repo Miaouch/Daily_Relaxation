@@ -1,11 +1,11 @@
 @font-face {
     font-family: "cherry";
-    src: url(../font/cherryBomb-title.ttf);
+    src: url(../font/CherryBomb-Regular.ttf);
 }
 
 @font-face {
     font-family: "caviar";
-    src: url(../font/caviarDreams-text.ttf);
+    src: url(../font/CaviarDreams.ttf);
 }
 
 .title{
@@ -25,19 +25,18 @@
 body{
     width: 100%;
     text-align: center;
-    color:white;
-    max-height: calc(100vh*4);
+    color:rgb(255, 255, 255);
     overflow: overlay;
     /* to hide 2 scrollbar  */
 }
 
 
 #home{
-    background-image: linear-gradient(to bottom, #88b8df, #88b8df);
+    background-image: linear-gradient(to bottom, #9ad2ff, #87b9e2);
 }
 
 #game{
-    background-image: linear-gradient(to bottom, #88b8df, #97adfe);
+    background-image: linear-gradient(to bottom, #81b8e6, #97adfe);
 }
 
 #informations{
@@ -46,6 +45,7 @@ body{
 
 #we{
     background-image: linear-gradient(to bottom, #b5a2ff, #d992ff);
+    padding-top: 10%;
 }
 
 .containerBody{
@@ -84,7 +84,7 @@ nav ul li a {
     margin: 1% 1rem;
     padding: 1rem;
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     border-bottom: 4px solid transparent;
     transition: padding-bottom .4s ease-in-out, border-color  .3s ease, color .2s;
 }
@@ -109,9 +109,44 @@ section{
     scroll-snap-align: center;
 }
 
+.container{
+    overflow: overlay;
+    width: 85%;
+    float:left;
+    padding-top:10%;
+}
+
+.container img{
+    width: 20%;
+}
+
+.kittyGreyNormal{
+   padding-left: 40%;
+}
+.kittyBrownDown{
+    margin-left: -10%;
+    margin-top: 5%;
+}
+
+.kittyBrownLeft{
+    width: 90%;
+    padding-left: 38%;
+    padding-top: 25%;
+}
+
+.kittyGreyUp{
+    width: 30%;
+    padding-top: 30%;
+    padding-left: 4%;
+}
+
 .homePage, .gamePage{
     margin-left: 9%;
     margin-right: 9%;
+}
+
+.homePageContent{
+    padding-bottom: 20%;
 }
 
 .welcom{
@@ -182,17 +217,22 @@ section{
     margin: 0% 10%;
 }
 
-
 .whoWeAre1{
     font-size: xx-large;
-    padding-bottom: 10%;
+    padding-bottom: 2%;
+    margin-top: -25%;
+}
+
+.weContainer{
+   width: 70%;
+   justify-content: center;
 }
 
 .we{
-   display: grid;
+    display: grid;
+    align-content: center;
+   width: 100%;
    grid-template-columns: 25% 25% 25% 25%;
-   column-gap: 70%;
-   justify-content: center;
 }
 
 .we div h3{
@@ -200,11 +240,29 @@ section{
     font-size: x-large;
 }
 
-footer{
-    clear: both;
-    position:absolute;
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 2%;
+.teamDR{
     font-size: xx-large;
+    padding-bottom: 2%;
 }
+
+.elisabettaImg{
+    width: 80%;
+}
+.melanieImg{
+    width: 65%;
+}
+
+.marieImg{
+    width: 48.5%;
+}
+
+.nisrineImg{
+    width: 50%;
+}
+
+
+/* footer{ 
+    margin-top: 10%;
+    clear: both;
+    font-size: xx-large;
+} */
