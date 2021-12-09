@@ -200,8 +200,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488261299}
-  m_LocalRotation: {x: 0.14187054, y: 0.21349439, z: -0.031352025, w: 0.9660797}
-  m_LocalPosition: {x: -5.301344, y: 10.063012, z: -15.3702545}
+  m_LocalRotation: {x: -0.07453792, y: 0.9007199, z: -0.17118306, w: -0.39222986}
+  m_LocalPosition: {x: 19.916758, y: 10.728033, z: 18.531933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -363,10 +363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomZone: {x: 5, y: 5, z: 5}
-  limitPrefab: {fileID: 5485269686112866257, guid: 7e7d9f4ea5825df468f4ee9c06132586, type: 3}
-  greyPrefab: {fileID: 5590684065538849914, guid: ff1f966c09c413f469a04559b915afd8, type: 3}
+  greyPrefab: {fileID: 6513986391724219991, guid: f623c858aa100a84faba5467e4177551, type: 3}
   bluePrefab: {fileID: 6513986391724219991, guid: 4836d8933353cfa499b595511b3b87fb, type: 3}
-  greyChat: {fileID: 5590684065538849914, guid: ff1f966c09c413f469a04559b915afd8, type: 3}
+  nBlueChat: 0
+  greyChat: {fileID: 6513986391724219991, guid: 4836d8933353cfa499b595511b3b87fb, type: 3}
   blueChat: {fileID: 6513986391724219991, guid: 4836d8933353cfa499b595511b3b87fb, type: 3}
   whenBlueChatTransformInGrey:
     m_PersistentCalls:
@@ -393,10 +393,23 @@ MonoBehaviour:
   whenPlayerLose:
     m_PersistentCalls:
       m_Calls: []
+  whenHighlight:
+    m_PersistentCalls:
+      m_Calls: []
   speed: {x: 0, y: 0, z: -10}
   deplacement: {x: 0, y: 0, z: 0}
   speedFactor: -10
+  timerRealChat: 5
   randomSpeedDirection: {x: 0, y: 0, z: 0}
+  isClicked: 0
+  howManyClick: 0
+  howManyCorrect: 0
+  limitPrefab: {fileID: 5485269686112866257, guid: 7e7d9f4ea5825df468f4ee9c06132586, type: 3}
+  chatsHighLight: {fileID: 0}
+  isHighlight: 0
+  timeToRestart: 5
+  index: 0
+  limit: {fileID: 5485269686112866267, guid: 7e7d9f4ea5825df468f4ee9c06132586, type: 3}
 --- !u!4 &1856806990
 Transform:
   m_ObjectHideFlags: 0
@@ -424,3 +437,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1856806989}
+  inverseSpeed: 0
+  index: 0
