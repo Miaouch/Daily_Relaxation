@@ -7,12 +7,27 @@ public class zoneBehavior : MonoBehaviour
     public LevelManager manager;
     private void OnTriggerExit(Collider other)
     {
-        ChatsBehavior chat = other.GetComponent<ChatsBehavior>();
+        //ChatsBehavior chat = other.GetComponent<ChatsBehavior>();
 
-        if (chat != null)
-        {
-            manager.speed = -manager.speed;
-        }
+        //if (chat != null)
+        //{
+        //    for (int i=0; i< manager.speeds.Count; i++)
+        //    {
+        //        manager.speeds[i] = chat.gameObject.transform.position;
+        //    }
+
+            
+
+
+
+
+
+
+
+
+
+
+        //}
     }
 
 }

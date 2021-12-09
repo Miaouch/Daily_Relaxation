@@ -6,6 +6,8 @@ public class ChatsBehavior : MonoBehaviour
 {
     [HideInInspector]
     public LevelManager manager;
+
+
     
 
     public int value = 1;

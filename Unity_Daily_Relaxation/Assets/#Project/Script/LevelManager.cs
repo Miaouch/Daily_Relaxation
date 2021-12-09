@@ -6,8 +6,11 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    public static int dimensionZone = 20;
+    public static int dimensionZone = 5;
     public Vector3 randomZone = Vector3.one * dimensionZone;
+
+    public GameObject limitPrefab;
+
     public GameObject greyPrefab;
     public GameObject bluePrefab;
 
@@ -35,8 +38,6 @@ public class LevelManager : MonoBehaviour
     public Vector3 deplacement;
     public float speedFactor= -10;
 
-    public bool goodAnswer=false;
-
     public Vector3 randomSpeedDirection = Vector3.zero;
 
     private void Start() 
@@ -48,9 +49,13 @@ public class LevelManager : MonoBehaviour
         }
 
         addSpeed();
+
+        GameObject limitZone = Instantiate(limitPrefab, randomZone, Quaternion.identity); 
+        Debug.Log(randomZone);
     }
 
     private void Update() {
+
         timerRealChat -= Time.deltaTime;
 
         for (int j = 0; j <= listChats.Count - 1; j++)
