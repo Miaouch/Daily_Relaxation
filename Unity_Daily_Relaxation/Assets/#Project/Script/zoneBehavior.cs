@@ -5,29 +5,23 @@ using UnityEngine;
 public class zoneBehavior : MonoBehaviour
 {
     public LevelManager manager;
-    private void OnTriggerExit(Collider other)
+    public bool inverseSpeed = false;
+    public int index;
+
+    private void Start()
     {
-        //ChatsBehavior chat = other.GetComponent<ChatsBehavior>();
-
-        //if (chat != null)
-        //{
-        //    for (int i=0; i< manager.speeds.Count; i++)
-        //    {
-        //        manager.speeds[i] = chat.gameObject.transform.position;
-        //    }
-
-            
-
-
-
-
-
-
-
-
-
-
-        //}
+        manager = FindObjectOfType<LevelManager>();
     }
 
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("BlueChat") || other.CompareTag("GreyChat"))
+        {
+            ChatsBehavior chat = other.gameObject.GetComponent<ChatsBehavior>();
+
+            manager.ChangeSpeed(chat.id);
+        }
+        
+    }
 }

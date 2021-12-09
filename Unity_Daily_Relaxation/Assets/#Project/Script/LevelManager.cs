@@ -20,8 +20,7 @@ public class LevelManager : MonoBehaviour
     public GameObject blueChat;
     public UnityEvent whenBlueChatTransformInGrey;
 
-    public List<GameObject> listChats = new List<GameObject>();
-
+    public List<ChatsBehavior> listChats = new List<ChatsBehavior>();
     public List<Vector3> speeds = new List<Vector3>();
     public Material[] materialsChats;
     public int listCount = 15;
@@ -40,6 +39,10 @@ public class LevelManager : MonoBehaviour
 
     public Vector3 randomSpeedDirection = Vector3.zero;
 
+    public int index;
+
+    public zoneBehavior limit;
+
     private void Start() 
     {
 
@@ -57,16 +60,20 @@ public class LevelManager : MonoBehaviour
     private void Update() {
 
         timerRealChat -= Time.deltaTime;
-
+        index = 0;
         for (int j = 0; j <= listChats.Count - 1; j++)
         {
             deplacement = speeds[j] * Time.deltaTime;
             listChats[j].transform.position += deplacement;
+            listChats[j].id = index;
+            listChats[j].manager = this;
             greyChat.transform.position += deplacement;
-
             blueChat.transform.position += deplacement;
+            index++;
         }
 
+        
+        
         //for (int j = 0; j <= listChats.Count - 1; j++)
         //{
         //    speed = Random.onUnitSphere * speedFactor;
@@ -102,33 +109,14 @@ public class LevelManager : MonoBehaviour
             if (nBlueChat<=3)
             {
                 GameObject blueChat = Instantiate(bluePrefab, position, Quaternion.identity);
-                listChats.Add(blueChat);
+                listChats.Add(blueChat.GetComponent<ChatsBehavior>());
                 nBlueChat++;
             }
 
             GameObject greyChat = Instantiate(greyPrefab, position, Quaternion.identity);
-            listChats.Add(greyChat);
-
+            listChats.Add(greyChat.GetComponent<ChatsBehavior>());           
             nChats++;
-
         }
-
-        // if (Random.Range(0, 5) == 0) {
-        // if (nBlueChat <=3) {
-        //     blueChat = Instantiate(
-        //         bluePrefab, position, Quaternion.identity);
-        //     blueChat.GetComponent<ChatsBehavior>().manager = this;
-        //     nBlueChat++;
-            
-        //     blueChat.transform.position += deplacement;
-        // }
-        // else {
-        //     greyChat = Instantiate(
-        //         greyPrefab, position, Quaternion.identity);
-        //     greyChat.GetComponent<ChatsBehavior>().manager = this;
-        //     greyChat.transform.position += deplacement;
-        // }
-        // nChats++;    
     }
 
     void addSpeed()
@@ -158,6 +146,11 @@ public class LevelManager : MonoBehaviour
         //     // if (score < 0) whenPlayerLose?.Invoke();
         // }
         nChats--;
+    }
+
+    public void ChangeSpeed(int id)
+    {
+        speeds[id] = -speeds[id];
     }
 
 }
