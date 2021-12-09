@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelManager
   - BlueChat
+  - GreyChat
   layers:
   - Default
   - TransparentFX

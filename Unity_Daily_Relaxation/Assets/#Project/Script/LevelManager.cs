@@ -6,17 +6,24 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    public static int dimensionZone = 20;
+    public static int dimensionZone = 5;
     public Vector3 randomZone = Vector3.one * dimensionZone;
+
+    public GameObject limitPrefab;
+
     public GameObject greyPrefab;
     public GameObject bluePrefab;
 
-    private int chatNbr = 1;
     private int nChats = 0;
     private int nBlueChat=0;
     public GameObject greyChat;
     public GameObject blueChat;
     public UnityEvent whenBlueChatTransformInGrey;
+
+    public List<ChatsBehavior> listChats = new List<ChatsBehavior>();
+    public List<Vector3> speeds = new List<Vector3>();
+    public Material[] materialsChats;
+    public int listCount = 15;
 
 
     public UnityEvent whenPlayerWins;
@@ -32,81 +39,93 @@ public class LevelManager : MonoBehaviour
 
     public Vector3 randomSpeedDirection = Vector3.zero;
 
+    public int index;
+
+    public zoneBehavior limit;
+
     private void Start() 
     {
-        speed = Random.onUnitSphere * speedFactor;
+
+        if (nChats <= 15)
+        {
+            PopChats();
+        }
+
+        addSpeed();
+
+        GameObject limitZone = Instantiate(limitPrefab, randomZone, Quaternion.identity); 
+        Debug.Log(randomZone);
     }
 
     private void Update() {
+
         timerRealChat -= Time.deltaTime;
-
-        deplacement = speed * Time.deltaTime;
-
-        greyChat.transform.position += deplacement;
-        blueChat.transform.position += deplacement;
-        if(nChats<=15)
+        index = 0;
+        for (int j = 0; j <= listChats.Count - 1; j++)
         {
-            PopChats();
-
+            deplacement = speeds[j] * Time.deltaTime;
+            listChats[j].transform.position += deplacement;
+            listChats[j].id = index;
+            listChats[j].manager = this;
+            greyChat.transform.position += deplacement;
+            blueChat.transform.position += deplacement;
+            index++;
         }
 
-        if(timerRealChat <= 0)
+        
+        
+        //for (int j = 0; j <= listChats.Count - 1; j++)
+        //{
+        //    speed = Random.onUnitSphere * speedFactor;
+
+        //    deplacement = speed * Time.deltaTime;
+
+        //    listChats[j].transform.position += deplacement;
+        //    // greyChat.transform.position += deplacement;
+
+        //    // blueChat.transform.position += deplacement;
+        //}
+
+        if (timerRealChat <= 0)
         {
             Debug.Log("change color");
             whenBlueChatTransformInGrey?.Invoke();
         }
-        
-        // if (popTimer <= 0f) {
-        //     PopCubes();
-        //     popTimer = 1f;
-        // }
-        // if (popRateTimer <= 0f) {
-        //     chatNbr++;
-        //     popRateTimer = 5f;
-        // }
-       
-
     }
-
-
-    // private void PopChats() {
-    //     for (int n = 0; n < chatNbr; n++) {
-    //         PopChat();
-    //     }
-    // }
 
     private void PopChats() {
 
         //if (nCubes >= 10) return;
+        
 
-        float x = Random.Range(0, randomZone.x);
-        float y = Random.Range(0, randomZone.y);
-        float z = Random.Range(0, randomZone.z);
+        for(int k=0; k<listCount; k++)
+        {
+            float x = Random.Range(0, randomZone.x);
+            float y = Random.Range(0, randomZone.y);
+            float z = Random.Range(0, randomZone.z);
 
-        Vector3 position = new Vector3(x, y, z);
-
-
-        // if (Random.Range(0, 5) == 0) {
-        if (nBlueChat <=3) {
-            blueChat = Instantiate(
-                bluePrefab, position, Quaternion.identity);
-            blueChat.GetComponent<ChatsBehavior>().manager = this;
-            nBlueChat++;
+            Vector3 position = new Vector3(x, y, z);
             
-            blueChat.transform.position += deplacement;
+            if (nBlueChat<=3)
+            {
+                GameObject blueChat = Instantiate(bluePrefab, position, Quaternion.identity);
+                listChats.Add(blueChat.GetComponent<ChatsBehavior>());
+                nBlueChat++;
+            }
+
+            GameObject greyChat = Instantiate(greyPrefab, position, Quaternion.identity);
+            listChats.Add(greyChat.GetComponent<ChatsBehavior>());           
+            nChats++;
         }
-        else {
-            greyChat = Instantiate(
-                greyPrefab, position, Quaternion.identity);
-            greyChat.GetComponent<ChatsBehavior>().manager = this;
-            greyChat.transform.position += deplacement;
+    }
+
+    void addSpeed()
+    {
+        for (int s = 0; s <= listChats.Count; s++)
+        {
+            speed = Random.onUnitSphere * speedFactor;
+            speeds.Add(speed);                   
         }
-
-
-
-        nChats++;
-
-       
     }
 
     public void SelectionChat(GameObject chat) {
@@ -127,6 +146,11 @@ public class LevelManager : MonoBehaviour
         //     // if (score < 0) whenPlayerLose?.Invoke();
         // }
         nChats--;
+    }
+
+    public void ChangeSpeed(int id)
+    {
+        speeds[id] = -speeds[id];
     }
 
 }

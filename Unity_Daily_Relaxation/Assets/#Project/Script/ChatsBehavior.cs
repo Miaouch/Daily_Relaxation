@@ -6,8 +6,9 @@ public class ChatsBehavior : MonoBehaviour
 {
     [HideInInspector]
     public LevelManager manager;
-    
 
+    public int id = -1;
+    
     public int value = 1;
     
     
@@ -22,5 +23,16 @@ public class ChatsBehavior : MonoBehaviour
         //manager.RemoveCube(gameObject);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BlueChat") || other.CompareTag("GreyChat"))
+        {
+            //other.gameObject.GetComponent<ChatsBehavior>();
+
+            manager.ChangeSpeed(other.gameObject.GetComponent<ChatsBehavior>().id);
+            Debug.Log("chat collision");
+        }
+
+    }
 
 }
