@@ -165,8 +165,45 @@ section{
 
 .question{
     font-family: "Cherry";
+    margin-bottom: 5%;
 }
 
 .answer{
     font-family: "Caviar";
+}
+
+.lastQuestion {
+    font-family: "Cherry";
+    margin-bottom: 1.5%;
+}
+
+.lastAnswer{
+    font-family: "Caviar";
+    margin: 0% 10%;
+}
+
+
+.whoWeAre1{
+    font-size: xx-large;
+    padding-bottom: 10%;
+}
+
+.we{
+   display: grid;
+   grid-template-columns: 25% 25% 25% 25%;
+   column-gap: 70%;
+   justify-content: center;
+}
+
+.we div h3{
+    font-family: "Cherry";
+    font-size: x-large;
+}
+
+footer{
+    clear: both;
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 3%;
+    font-size: xx-large;
 }
