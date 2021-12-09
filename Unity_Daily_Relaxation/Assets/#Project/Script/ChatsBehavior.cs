@@ -23,15 +23,16 @@ public class ChatsBehavior : MonoBehaviour
         //manager.RemoveCube(gameObject);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("BlueChat") || other.CompareTag("GreyChat"))
-    //    {
-    //        ChatsBehavior chat = other.gameObject.GetComponent<ChatsBehavior>();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BlueChat") || other.CompareTag("GreyChat"))
+        {
+            //other.gameObject.GetComponent<ChatsBehavior>();
 
-    //        manager.ChangeSpeed(chat.id);
-    //    }
+            manager.ChangeSpeed(other.gameObject.GetComponent<ChatsBehavior>().id);
+            Debug.Log("chat collision");
+        }
 
-    //}
+    }
 
 }
