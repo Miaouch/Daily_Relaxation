@@ -111,7 +111,10 @@ section{
     margin-top: 7%;
 }
 
-.game
+.game{
+    border: 2px solid black;
+    height: 400px;
+}
 
 .question{
     font-family: "Cherry";
