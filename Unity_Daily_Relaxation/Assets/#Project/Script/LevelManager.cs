@@ -10,14 +10,13 @@ public class LevelManager : MonoBehaviour
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
     public GameObject bluePrefab;
-    public GameObject cube;
 
     private int chatNbr = 1;
     private int nChats = 0;
     public GameObject greyChat;
     public GameObject blueChat;
 
-
+    public GameObject cube;
 
     public UnityEvent whenPlayerWins;
     public UnityEvent whenPlayerLose;
@@ -27,19 +26,30 @@ public class LevelManager : MonoBehaviour
 
     public Vector3 speed = Vector3.zero;
     public Vector3 deplacement;
+    public float speedFactor= -10;
+
+    public Vector3 randomSpeedDirection = Vector3.zero;
 
     private void Start() 
     {
-        speed = new Vector3(0, 0, -10);
+        speed = Random.onUnitSphere * speedFactor;
     }
 
     private void Update() {
+
         popTimer -= Time.deltaTime;
         popRateTimer -= Time.deltaTime;
-    
-        if(nChats<=15)
+
+
+        deplacement = speed * Time.deltaTime;
+
+        greyChat.transform.position += deplacement;
+        blueChat.transform.position += deplacement;
+
+        if (nChats<=15)
         {
             PopChats();
+
         }
         // if (popTimer <= 0f) {
         //     PopCubes();
@@ -49,8 +59,7 @@ public class LevelManager : MonoBehaviour
         //     chatNbr++;
         //     popRateTimer = 5f;
         // }
-        deplacement = speed * Time.deltaTime;
-        cube.transform.position += deplacement;
+       
 
     }
 
@@ -75,15 +84,19 @@ public class LevelManager : MonoBehaviour
         if (Random.Range(0, 5) == 0) {
             blueChat = Instantiate(
                 bluePrefab, position, Quaternion.identity);
+            blueChat.transform.position += deplacement;
         }
         else {
             greyChat = Instantiate(
                 greyPrefab, position, Quaternion.identity);
+            greyChat.transform.position += deplacement;
         }
 
         blueChat.GetComponent<ChatsBehavior>().manager = this;
         greyChat.GetComponent<ChatsBehavior>().manager = this;
         nChats++;
+
+       
     }
 
     public void SelectionChat(GameObject chat) {
