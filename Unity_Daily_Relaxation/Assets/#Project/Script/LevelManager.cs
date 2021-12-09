@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     public int howManyClick = 0;
     public int howManyCorrect = 0;
 
+    public GameObject limitPrefab;
     GameObject[] chatsGameObjects;
     public ChatsHighLight chatsHighLight;
     public bool isHighlight = false;

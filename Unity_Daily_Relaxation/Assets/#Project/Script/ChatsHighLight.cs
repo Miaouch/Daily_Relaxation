@@ -17,7 +17,6 @@ public class ChatsHighLight : MonoBehaviour
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         miaoRenderer = GetComponent<MeshRenderer>();
-
     }
 
     
@@ -33,6 +32,7 @@ public class ChatsHighLight : MonoBehaviour
             Highlight();
         } 
     }
+    
     public void Highlight()
     {
         miaoRenderer.material = highLightMaterial;
