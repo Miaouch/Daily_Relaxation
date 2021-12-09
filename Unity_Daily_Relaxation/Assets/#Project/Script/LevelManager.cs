@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
 
     public UnityEvent whenPlayerWins;
     public UnityEvent whenPlayerLose;
-
+    public UnityEvent whenHighlight;
     public Vector3 speed = Vector3.zero;
     public Vector3 deplacement;
     public float speedFactor= -10;
@@ -35,7 +35,9 @@ public class LevelManager : MonoBehaviour
 
     public Vector3 randomSpeedDirection = Vector3.zero;
     public bool isClicked = false;
+    public int howManyClick = 0;
     public ChatsHighLight chatsHighLight;
+    public bool isHighlight = false;
     
 
     private void Start() 
@@ -45,9 +47,15 @@ public class LevelManager : MonoBehaviour
         {
             PopChats();
         }
-        chatsHighLight = GameObject.FindGameObjectWithTag("Chat").GetComponent<ChatsHighLight>();
 
         addSpeed();
+
+        
+
+        if(chatsHighLight==null)
+        {
+            Debug.Log("Ohhh noooo!");
+        }
     }
 
     private void Update() {
@@ -58,7 +66,6 @@ public class LevelManager : MonoBehaviour
             deplacement = speeds[j] * Time.deltaTime;
             listChats[j].transform.position += deplacement;
             greyChat.transform.position += deplacement;
-
             blueChat.transform.position += deplacement;
         }
 
@@ -93,14 +100,11 @@ public class LevelManager : MonoBehaviour
                         miaoRenderer.material = materialsChats[1];
                         Debug.Log("material Chats grey"+ materialsChats[1]);
                     }
-
                 }
             }
         }
-        if (isClicked)
-        {
-
-        }
+        DetectionDesChats();
+        
     }
 
     private void PopChats() {
@@ -116,7 +120,7 @@ public class LevelManager : MonoBehaviour
 
             Vector3 position = new Vector3(x, y, z);
             
-            if (nBlueChat<=3)
+            if (nBlueChat<3)
             {
                 GameObject blueChat = Instantiate(bluePrefab, position, Quaternion.identity);
                 listChats.Add(blueChat);
@@ -128,25 +132,8 @@ public class LevelManager : MonoBehaviour
             listChats.Add(greyChat);
 
             nChats++;
-
         }
 
-        // if (Random.Range(0, 5) == 0) {
-        // if (nBlueChat <=3) {
-        //     blueChat = Instantiate(
-        //         bluePrefab, position, Quaternion.identity);
-        //     blueChat.GetComponent<ChatsBehavior>().manager = this;
-        //     nBlueChat++;
-            
-        //     blueChat.transform.position += deplacement;
-        // }
-        // else {
-        //     greyChat = Instantiate(
-        //         greyPrefab, position, Quaternion.identity);
-        //     greyChat.GetComponent<ChatsBehavior>().manager = this;
-        //     greyChat.transform.position += deplacement;
-        // }
-        // nChats++;    
     }
 
     void addSpeed()
@@ -158,23 +145,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void SelectionChat(GameObject chat) {
-        ChatsHighLight chatHighLight = chat.GetComponent<ChatsHighLight>();
-        if(chatHighLight.clicked)
+    void DetectionDesChats()
+    {
+        for(int l = 0; l <= listChats.Count-1; l++)
         {
-            // change de couleur apres un certain temps
-        }
+            //var miaoBool = listChats[l].GetComponent<ChatsHighLight>();
 
-        // ChatsBehavior chatsBehavior = chat.GetComponent<ChatsBehavior>();
-        // if (chatsBehavior.clicked) {
-        //     // score += chatsBehavior.value;
-        //     // if (score >= scoreMax) whenPlayerWins?.Invoke();
+            if(isHighlight)
+            {
+                Debug.Log("the cat is highlight");
+            }
             
-        // }
-        // else {
-        //     // score -= chatsBehavior.value;
-        //     // if (score < 0) whenPlayerLose?.Invoke();
-        // }
-        nChats--;
+        }
     }
+
+    
 }

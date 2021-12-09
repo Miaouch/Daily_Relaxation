@@ -371,9 +371,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   listChats: []
+  speeds: []
   materialsChats:
   - {fileID: 2100000, guid: 1168250e1348aed468202e6758f53f95, type: 2}
   - {fileID: 2100000, guid: de680018a2763434e9ca99065f49b8b6, type: 2}
+  - {fileID: 2100000, guid: a2f371fd87bad3741b23cadcc83d90a1, type: 2}
   listCount: 15
   whenPlayerWins:
     m_PersistentCalls:
@@ -393,12 +395,29 @@ MonoBehaviour:
   whenPlayerLose:
     m_PersistentCalls:
       m_Calls: []
+  whenHighlight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   speed: {x: 0, y: 0, z: 0}
   deplacement: {x: 0, y: 0, z: 0}
-  speedFactor: -10
+  speedFactor: -5
   timerRealChat: 5
+  goodAnswer: 0
   randomSpeedDirection: {x: 0, y: 0, z: 0}
   isClicked: 0
+  howManyClick: 0
   chatsHighLight: {fileID: 0}
 --- !u!4 &1856806990
 Transform:
