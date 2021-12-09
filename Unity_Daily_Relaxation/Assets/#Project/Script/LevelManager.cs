@@ -6,52 +6,27 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-
-    public ChatsBehavior[] chats;
-    public Material[] materialsChats;
-    public List<int> blueChats = new List<int>();
+    
     public static int dimensionZone = 20;
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
     public GameObject bluePrefab;
-
+    public int nBlueChat=0;
     private int nChats = 0;
     public GameObject greyChat;
     public GameObject blueChat;
-<<<<<<< HEAD
-
-=======
     public UnityEvent whenBlueChatTransformInGrey;
     public List<GameObject> listChats = new List<GameObject>();
     public Material[] materialsChats;
     public int listCount = 15;
->>>>>>> master
-
 
     public UnityEvent whenPlayerWins;
     public UnityEvent whenPlayerLose;
 
-
-<<<<<<< HEAD
-    private float popChatTimer = 5f;
-
-    
-
-    private void Start() {
-
-    }
-
-    private void Update() {
-
-        popChatTimer -= Time.deltaTime;
-
-
-
-        if(nChats<=15)
-=======
     public Vector3 speed = Vector3.zero;
     public Vector3 deplacement;
     public float speedFactor= -10;
+    public float timerRealChat = 5f;
 
     public Vector3 randomSpeedDirection = Vector3.zero;
 
@@ -70,7 +45,6 @@ public class LevelManager : MonoBehaviour
         
 
         for(int j=0; j<=listChats.Count-1; j++)
->>>>>>> master
         {
             speed = Random.onUnitSphere * speedFactor;
             
@@ -81,19 +55,6 @@ public class LevelManager : MonoBehaviour
 
             // blueChat.transform.position += deplacement;
         }
-<<<<<<< HEAD
-        // if (popTimer <= 0f) {
-        //     PopCubes();
-        //     popTimer = 1f;
-        // }
-        // if (popRateTimer <= 0f) {
-        //     chatNbr++;
-        //     popRateTimer = 5f;
-        // }
-
-    }
-
-=======
         
 
 
@@ -102,7 +63,6 @@ public class LevelManager : MonoBehaviour
             Debug.Log("change color");
             whenBlueChatTransformInGrey?.Invoke();
         }
->>>>>>> master
 
     }
 
@@ -132,21 +92,6 @@ public class LevelManager : MonoBehaviour
 
         }
 
-<<<<<<< HEAD
-
-        if (Random.Range(0, 5) == 0) {
-            blueChat = Instantiate(
-                bluePrefab, position, Quaternion.identity);
-        }
-        else {
-            greyChat = Instantiate(
-                greyPrefab, position, Quaternion.identity);
-        }
-
-        blueChat.GetComponent<ChatsBehavior>().manager = this;
-        greyChat.GetComponent<ChatsBehavior>().manager = this;
-        nChats++;
-=======
         // if (Random.Range(0, 5) == 0) {
         // if (nBlueChat <=3) {
         //     blueChat = Instantiate(
@@ -168,7 +113,6 @@ public class LevelManager : MonoBehaviour
         // nChats++;
 
        
->>>>>>> master
     }
 
     public void SelectionChat(GameObject chat) {
