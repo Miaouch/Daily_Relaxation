@@ -6,7 +6,7 @@ public class ChatsHighLight : MonoBehaviour
 {
     [HideInInspector]
     
-    private MeshRenderer miaoRenderer;
+    public MeshRenderer miaoRenderer;
     //private Material originalMaterial;
     public Material highLightMaterial;
     
@@ -26,11 +26,14 @@ public class ChatsHighLight : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        if(levelManager.howManyClick < 3)
+        if(levelManager.howManyClick < 3 && levelManager.miaoCanBeClicked)
         {
             levelManager.howManyClick +=1;
             Highlight();
-        } 
+           
+        }
+        Debug.Log(levelManager.howManyClick);
+        Debug.Log("click");
     }
     
     public void Highlight()
