@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public static int dimensionZone = 7;
+    public static int dimensionZone = 14;
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
     public GameObject bluePrefab;

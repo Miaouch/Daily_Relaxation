@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b045b4f515d164da5c25d4de780042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomZone: {x: 5, y: 5, z: 5}
+  randomZone: {x: 5, y: 5, z: 1}
   greyPrefab: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
   bluePrefab: {fileID: 7978130451249896586, guid: 4ebbe5521a980f24c85f693cd5477150, type: 3}
   nBlueChat: 0
