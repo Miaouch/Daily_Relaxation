@@ -96,7 +96,7 @@ public class LevelManager : MonoBehaviour
                        
             for(int n=0; n<=listChats.Count-1; n++)
             {
-                var miaoRenderer = listChats[n].GetComponent<Renderer>();
+                var miaoRenderer = listChats[n].GetComponentInChildren<Renderer>();
                 if(miaoRenderer == null)
                 {
                     Debug.Log("miao Renderer null");
@@ -112,8 +112,8 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-        DetectionDesChats();
-        CeckVictory();
+        //DetectionDesChats();
+        //CeckVictory();
     }
 
     private void PopChats() {
@@ -150,7 +150,7 @@ public class LevelManager : MonoBehaviour
 
     public void DetectionDesChats()
     {
-        howManyCorrect = 0;
+        howManyCorrect = 0; //??
 
         for(int l = 0; l <= listChats.Count-1; l++)
         {
@@ -159,6 +159,7 @@ public class LevelManager : MonoBehaviour
             if(miaoBool.chatSelected)
             {
                 Debug.Log("the cat is highlight");
+
                 if(listChats[l].name == "BlueChat")
                 {
                     Debug.Log("yuppi blueChat");
@@ -206,5 +207,9 @@ public class LevelManager : MonoBehaviour
     {
         speeds[id] = -speeds[id];
     }
-
+    public void CeckingHigh()
+    {
+        DetectionDesChats();
+        CeckVictory(); 
+    }
 }
