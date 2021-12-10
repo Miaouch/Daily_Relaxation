@@ -7,6 +7,7 @@
     <title>daily_relaxation</title>
     <link rel="stylesheet" href="./public/css/style.css">
     <link rel="icon" href="./public/img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./TemplateData/style.css">
 </head>
 <body>
     <div class="lastTry">
@@ -63,11 +64,7 @@
                 <section id="game">
                     <div class="gamePage">
                         <h1 class="title">Relax Kitty</h1>
-                        <div class="game">
-                            <aside>
-            
-                            </aside>
-                        </div>
+                        <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
                         <details class="gameInfo">
                             <summary class="title">Comment jouer?</summary>
                             <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati culpa commodi labore id vitae mollitia sit aperiam eius, vel enim ea molestias accusamus, neque vero repellat, qui omnis quidem cumque adipisci dolore laboriosam quos molestiae? Et quibusdam repellat adipisci nisi! Blanditiis aperiam animi voluptates! Pariatur odit tenetur voluptatem quas! Recusandae?</p>
@@ -88,18 +85,6 @@
                             <li class="layer cloud8"><img src="./public/img/cloud/secondLine3.png" alt=""></li>
                             <li class="layer cloud9"><img src="./public/img/cloud/secondLine2.png" alt=""></li>
                             <li class="layer cloud310"><img src="./public/img/cloud/secondLine1.png" alt=""></li>
-                            <li class="layer kittyGreyNormal" data-depth="1.5">
-                                <img src="./public/img/kittyGreyNormal.png" alt="">
-                            </li>
-                            <li class="layer kittyBrownDown" data-depth="-0.8">
-                                <img src="./public/img/kittyBrownDown.png" alt="">
-                            </li>
-                            <li class="layer kittyGreyUp" data-depth="00.60">
-                                <img src="./public/img/kittyGreyUp.png" alt="">
-                            </li>
-                            <li class="layer kittyBrownLeft" data-depth="0.40">
-                                <img src="./public/img/kittyBrownLeft.png" alt="Kitty" >
-                            </li>
                         </ul>
                     </div>
                     <div class="containerQuestions">
@@ -136,18 +121,6 @@
                             <li class="layer cloud8"><img src="./public/img/cloud/secondLine3.png" alt=""></li>
                             <li class="layer cloud9"><img src="./public/img/cloud/secondLine2.png" alt=""></li>
                             <li class="layer cloud310"><img src="./public/img/cloud/secondLine1.png" alt=""></li>
-                            <li class="layer kittyGreyNormal" data-depth="1.5">
-                                <img src="./public/img/kittyGreyNormal.png" alt="">
-                            </li>
-                            <li class="layer kittyBrownDown" data-depth="-0.8">
-                                <img src="./public/img/kittyBrownDown.png" alt="">
-                            </li>
-                            <li class="layer kittyGreyUp" data-depth="00.60">
-                                <img src="./public/img/kittyGreyUp.png" alt="">
-                            </li>
-                            <li class="layer kittyBrownLeft" data-depth="0.40">
-                                <img src="./public/img/kittyBrownLeft.png" alt="Kitty" >
-                            </li>
                         </ul>
                     </div>
                     <h1 class="title whoWeAre1">Qui sommes-nous?</h1>
@@ -183,5 +156,19 @@
     
     <script src="./public/js/parallax.min.js"></script>
     <script src="./public/js/script.js"></script>
+    <script src="./Builds_Webgl/Build/Builds_Webgl.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "./Builds_Webgl/Build/Builds_Webgl.data.unityweb",
+        frameworkUrl: "./Builds_Webgl/Build/Builds_Webgl.framework.js.unityweb",
+        codeUrl: "./Builds_Webgl/Build/Builds_Webgl.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Daily_Relaxation",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
 </body>
 </html>
