@@ -224,7 +224,7 @@ public class LevelManager : MonoBehaviour
             stopPause = true;
             
            
-            StartCoroutine(StartRestart());
+            //StartCoroutine(StartRestart());
 
             
             Debug.Log(stopPause);
@@ -294,7 +294,10 @@ public class LevelManager : MonoBehaviour
     {
         pauseMode = true;
         miaoCanBeClicked = true;
-        
+        for (int j=0; j<speeds.Count; j++)
+        {
+            speeds[j] = Vector3.zero;
+        }
 
         // this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         // this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
