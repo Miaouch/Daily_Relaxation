@@ -96,7 +96,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (timerRealChat <= 0)
+        if (timerRealChat <= 0 && ! miaoCanBeClicked)
         {                    
             for(int n=0; n<listChats.Count; n++)
             {
