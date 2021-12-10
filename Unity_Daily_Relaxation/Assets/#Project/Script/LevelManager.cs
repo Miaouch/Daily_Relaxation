@@ -105,7 +105,7 @@ public class LevelManager : MonoBehaviour
         {
             if (Vector3.Distance(listChats[c].transform.position,randomZone) > (dimensionZone*Mathf.Sqrt(3)/2))
             {             
-                speed[c] = -speed[c];
+                speeds[c] = -speeds[c];
             }
         }
 
@@ -125,7 +125,7 @@ public class LevelManager : MonoBehaviour
                         //Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
                         Debug.Log("material Chats grey"+ materialsChats[1]);
-                        miaoCanBeClicked = true;
+                        //miaoCanBeClicked = true;
                         
                         if (!pauseMode && !waitMode)
                         {
