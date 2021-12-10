@@ -297,11 +297,11 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(pauseDuration);
         
 
-        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        // this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        // this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 
         // find the speed before
-
+        
 
 
         //StartCoroutine(StartRestartPause());
