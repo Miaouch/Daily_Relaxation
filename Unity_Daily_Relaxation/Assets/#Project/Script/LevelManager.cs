@@ -56,13 +56,17 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         miaoCanBeClicked = false;
-        
-
+        GameObject limitZone = Instantiate(limitPrefab, randomZone, Quaternion.identity);
+        PopChats();
+        addSpeed();       
+    }
+ 
     private void Start() 
     {
-       
+
         //Debug.Log(randomZone);
     }
+    
 
     private void Update() {
 
@@ -189,7 +193,7 @@ public class LevelManager : MonoBehaviour
             }  
         }
     }
-    public void CeckVictory()
+    public void CheckVictory()
     {
         if(howManyClick == 3)
         {
@@ -224,10 +228,10 @@ public class LevelManager : MonoBehaviour
     {
         speeds[id] = -speeds[id];
     }
-    public void CeckingHigh()
+    public void CheckingHigh()
     {
         DetectionDesChats();
-        CeckVictory(); 
+        CheckVictory(); 
     }
 
     IEnumerator WaitPauseMode()

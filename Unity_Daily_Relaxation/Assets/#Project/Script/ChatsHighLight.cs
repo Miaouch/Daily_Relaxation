@@ -16,7 +16,7 @@ public class ChatsHighLight : MonoBehaviour
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        miaoRenderer = GetComponent<MeshRenderer>();
+        miaoRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
     
@@ -26,14 +26,14 @@ public class ChatsHighLight : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        if(levelManager.howManyClick < 3 && levelManager.miaoCanBeClicked)
+        if(levelManager.howManyClick < 3)// && levelManager.miaoCanBeClicked)
         {
             Debug.Log("how many click " + levelManager.howManyClick);
             levelManager.howManyClick +=1;
             Highlight();
             //levelManager.DetectionDesChats();
             //levelManager.CeckVictory();
-            levelManager.CeckingHigh();
+            levelManager.CheckingHigh();
         } 
     }
     public void Highlight()

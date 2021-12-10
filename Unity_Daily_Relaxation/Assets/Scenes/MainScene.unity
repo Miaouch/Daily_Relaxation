@@ -245,8 +245,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488261299}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.28005835, y: 0.6654991, z: -0.29864016, w: 0.6240932}
+  m_LocalPosition: {x: -9.341414, y: 21.426132, z: 3.8907633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -994,11 +994,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomZone: {x: 5, y: 5, z: 5}
-  greyPrefab: {fileID: 6513986391724219991, guid: f623c858aa100a84faba5467e4177551, type: 3}
-  bluePrefab: {fileID: 6513986391724219991, guid: 4836d8933353cfa499b595511b3b87fb, type: 3}
+  greyPrefab: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
+  bluePrefab: {fileID: 7978130451249896586, guid: 4ebbe5521a980f24c85f693cd5477150, type: 3}
   nBlueChat: 0
   greyChat: {fileID: 6513986391724219991, guid: f623c858aa100a84faba5467e4177551, type: 3}
-  blueChat: {fileID: 6513986391724219991, guid: 4836d8933353cfa499b595511b3b87fb, type: 3}
+  blueChat: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
   whenBlueChatTransformInGrey:
     m_PersistentCalls:
       m_Calls: []
@@ -1007,7 +1007,6 @@ MonoBehaviour:
   materialsChats:
   - {fileID: 2100000, guid: 1168250e1348aed468202e6758f53f95, type: 2}
   - {fileID: 2100000, guid: de680018a2763434e9ca99065f49b8b6, type: 2}
-  - {fileID: 2100000, guid: a2f371fd87bad3741b23cadcc83d90a1, type: 2}
   listCount: 15
   whenPlayerWins:
     m_PersistentCalls:
