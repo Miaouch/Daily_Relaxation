@@ -55,16 +55,18 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        miaoCanBeClicked = false;
         GameObject limitZone = Instantiate(limitPrefab, randomZone, Quaternion.identity);
         PopChats();
         addSpeed();       
     }
-
+ 
     private void Start() 
     {
-       
+
         //Debug.Log(randomZone);
     }
+    
 
     private void Update() {
 
@@ -96,11 +98,12 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (timerRealChat <= 0 && ! miaoCanBeClicked)
-        {                    
-            for(int n=0; n<listChats.Count; n++)
+        if (timerRealChat <= 0 && !miaoCanBeClicked)
+        {
+                       
+            for(int n=0; n<=listChats.Count-1; n++)
             {
-                miaoRenderer = listChats[n].GetComponent<Renderer>();
+                var miaoRenderer = listChats[n].GetComponentInChildren<Renderer>();
                 if(miaoRenderer == null)
                 {
                     //Debug.Log("miao Renderer null");
@@ -110,6 +113,8 @@ public class LevelManager : MonoBehaviour
                     {
                         //Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
+                        Debug.Log("material Chats grey"+ materialsChats[1]);
+                        miaoCanBeClicked = true;
                         
                         if (!pauseMode && !waitMode)
                         {
@@ -121,10 +126,8 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-
-        DetectionDesChats();
-        CheckVictory();
-           
+        //DetectionDesChats();
+        //CeckVictory();
     }
 
     private void PopChats() {
@@ -166,9 +169,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void DetectionDesChats()
+    public void DetectionDesChats()
     {
-        //howManyCorrect = 0;
+        howManyCorrect = 0; //??
 
         for(int l = 0; l <listChats.Count; l++)
         {
@@ -177,11 +180,11 @@ public class LevelManager : MonoBehaviour
             if(miaoBool.chatSelected)
             {
                 Debug.Log("the cat is highlight");
+
                 if(listChats[l].name == "BlueChat")
                 {
                     Debug.Log("yuppi blueChat");
                     howManyCorrect +=1;
-
                 }
                 else
                 {
@@ -190,19 +193,19 @@ public class LevelManager : MonoBehaviour
             }  
         }
     }
-    void CheckVictory()
+    public void CheckVictory()
     {
         if(howManyClick == 3)
         {
             if(howManyCorrect == 3)
             {
-                Debug.Log("how many correct " + howManyCorrect);
+                Debug.Log("how many correct (win)" + howManyCorrect);
                 Debug.Log("WIIIIIIN");
                 StartCoroutine(StartRestart());
             }
             else
             {
-                Debug.Log("how many correct " + howManyCorrect);
+                Debug.Log("how many correct (loose) " + howManyCorrect);
                 Debug.Log("LOOOSE");
                
             }
@@ -224,6 +227,11 @@ public class LevelManager : MonoBehaviour
     public void ChangeSpeed(int id)
     {
         speeds[id] = -speeds[id];
+    }
+    public void CheckingHigh()
+    {
+        DetectionDesChats();
+        CheckVictory(); 
     }
 
     IEnumerator WaitPauseMode()
