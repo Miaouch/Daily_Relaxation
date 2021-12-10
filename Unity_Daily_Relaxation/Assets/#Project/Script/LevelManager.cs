@@ -45,6 +45,10 @@ public class LevelManager : MonoBehaviour
     private bool pauseMode = false;
     private bool waitMode = false;
 
+    public bool miaoCanBeClicked = false;
+
+    private Renderer miaoRenderer;
+
     public int index;
 
     public zoneBehavior limit;
@@ -96,7 +100,7 @@ public class LevelManager : MonoBehaviour
         {                    
             for(int n=0; n<listChats.Count; n++)
             {
-                var miaoRenderer = listChats[n].GetComponent<Renderer>();
+                miaoRenderer = listChats[n].GetComponent<Renderer>();
                 if(miaoRenderer == null)
                 {
                     //Debug.Log("miao Renderer null");
@@ -106,17 +110,21 @@ public class LevelManager : MonoBehaviour
                     {
                         //Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
+                        
+                        if (!pauseMode && !waitMode)
+                        {
+                            StartCoroutine(WaitPauseMode());
+                        }
+
                         //Debug.Log("material Chats grey"+ materialsChats[1]);
                     }
                 }
             }
         }
+
         DetectionDesChats();
         CheckVictory();
-        if (!pauseMode && !waitMode)
-        {
-            StartCoroutine(WaitPauseMode());
-        }     
+           
     }
 
     private void PopChats() {
@@ -160,12 +168,12 @@ public class LevelManager : MonoBehaviour
 
     void DetectionDesChats()
     {
-        howManyCorrect = 0;
+        //howManyCorrect = 0;
 
         for(int l = 0; l <listChats.Count; l++)
         {
+            
             var miaoBool = listChats[l].GetComponent<ChatsHighLight>();
-
             if(miaoBool.chatSelected)
             {
                 Debug.Log("the cat is highlight");
@@ -196,7 +204,7 @@ public class LevelManager : MonoBehaviour
             {
                 Debug.Log("how many correct " + howManyCorrect);
                 Debug.Log("LOOOSE");
-                StartCoroutine(StartRestart());
+               
             }
         }
     }
@@ -229,7 +237,18 @@ public class LevelManager : MonoBehaviour
     IEnumerator StartPauseMode()
     {
         pauseMode = true;
+        miaoCanBeClicked = true;
+        //for (int l=0; l< listChats.Count;l++)
+        //{
+        //    if (listChats[l].name == "BlueChat")
+        //    {
+        //        miaoRenderer = listChats[l].GetComponent<Renderer>();
+        //        miaoRenderer.material = materialsChats[0];
+        //    }
+        //}
         yield return new WaitForSeconds(pauseDuration);
+        
+        StartCoroutine(StartRestart());
         pauseMode = false;
     }
 

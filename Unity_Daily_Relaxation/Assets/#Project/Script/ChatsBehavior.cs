@@ -7,6 +7,7 @@ public class ChatsBehavior : MonoBehaviour
     
     public LevelManager manager;
 
+
     public int id = -1;
     
     public int value = 1;
