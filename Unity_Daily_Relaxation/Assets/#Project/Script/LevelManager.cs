@@ -39,7 +39,12 @@ public class LevelManager : MonoBehaviour
     public ChatsHighLight chatsHighLight;
     public bool isHighlight = false;
     public float timeToRestart = 5f;
-    
+
+    private float waitPauseTime = 10f;
+    private float pauseDuration = 5f;
+    private bool pauseMode = false;
+    private bool waitMode = false;
+
     public int index;
 
     public zoneBehavior limit;
@@ -48,8 +53,7 @@ public class LevelManager : MonoBehaviour
     {
         GameObject limitZone = Instantiate(limitPrefab, randomZone, Quaternion.identity);
         PopChats();
-        addSpeed();
-        
+        addSpeed();       
     }
 
     private void Start() 
@@ -64,10 +68,13 @@ public class LevelManager : MonoBehaviour
         
         for (int j = 0; j < listChats.Count ; j++)
         {
-            deplacement = speeds[j] * Time.deltaTime;
-            listChats[j].transform.position += deplacement;          
-            greyChat.transform.position += deplacement;
-            blueChat.transform.position += deplacement;
+            if (!pauseMode)
+            {
+                deplacement = speeds[j] * Time.deltaTime;
+                listChats[j].transform.position += deplacement;
+                greyChat.transform.position += deplacement;
+                blueChat.transform.position += deplacement;
+            }           
         }
         for (int c = 0; c < listChats.Count; c++)
         {
@@ -83,9 +90,6 @@ public class LevelManager : MonoBehaviour
                 // or Destroy(); ...
                 // or sens inverse
             }
-            
-
-
         }
 
         if (timerRealChat <= 0)
@@ -108,7 +112,11 @@ public class LevelManager : MonoBehaviour
             }
         }
         DetectionDesChats();
-        CeckVictory();
+        CheckVictory();
+        if (!pauseMode && !waitMode)
+        {
+            StartCoroutine(WaitPauseMode());
+        }     
     }
 
     private void PopChats() {
@@ -174,7 +182,7 @@ public class LevelManager : MonoBehaviour
             }  
         }
     }
-    void CeckVictory()
+    void CheckVictory()
     {
         if(howManyClick == 3)
         {
@@ -208,6 +216,21 @@ public class LevelManager : MonoBehaviour
     public void ChangeSpeed(int id)
     {
         speeds[id] = -speeds[id];
+    }
+
+    IEnumerator WaitPauseMode()
+    {
+        waitMode = true;
+        yield return new WaitForSeconds(waitPauseTime);
+        StartCoroutine(StartPauseMode());
+        waitMode = false;       
+    }
+
+    IEnumerator StartPauseMode()
+    {
+        pauseMode = true;
+        yield return new WaitForSeconds(pauseDuration);
+        pauseMode = false;
     }
 
 }
