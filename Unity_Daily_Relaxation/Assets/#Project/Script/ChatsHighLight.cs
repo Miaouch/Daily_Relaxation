@@ -12,11 +12,14 @@ public class ChatsHighLight : MonoBehaviour
     
     public LevelManager levelManager;
     public bool chatSelected = false;
+    public bool activeOutline;
+    public GameObject outline;
     
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         miaoRenderer = GetComponentInChildren<MeshRenderer>();
+        outline.SetActive(false);
     }
 
     
@@ -25,6 +28,17 @@ public class ChatsHighLight : MonoBehaviour
         
     }
 
+    public void OnMouseOver(){
+        outline.SetActive(true);
+    }
+    public void OnMouseExit(){
+        if(!activeOutline){
+            outline.SetActive(false);
+        }else if(activeOutline){
+            outline.SetActive(true);
+        }
+
+    }
     private void OnMouseDown() {
         if(levelManager.howManyClick < 3)// && levelManager.miaoCanBeClicked)
         {
@@ -38,8 +52,19 @@ public class ChatsHighLight : MonoBehaviour
     }
     public void Highlight()
     {
-        miaoRenderer.material = highLightMaterial;
-        levelManager.isHighlight = true; //no
-        chatSelected = true;
+        if(gameObject.name == "BlueChat"){
+            outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+            // miaoRenderer.material = highLightMaterial;
+            levelManager.isHighlight = true; //no
+            chatSelected = true;
+            activeOutline =true;
+
+        } else {
+            outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+            // miaoRenderer.material = highLightMaterial;
+            levelManager.isHighlight = true; //no
+            chatSelected = true;
+            activeOutline =true;
+        }
     }
 }

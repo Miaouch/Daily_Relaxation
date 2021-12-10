@@ -259,3 +259,4 @@ MonoBehaviour:
   highLightMaterial: {fileID: 2100000, guid: a2f371fd87bad3741b23cadcc83d90a1, type: 2}
   levelManager: {fileID: 0}
   chatSelected: 0
+  outline: {fileID: 2365021511746164987}
