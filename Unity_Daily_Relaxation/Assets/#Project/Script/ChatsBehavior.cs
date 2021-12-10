@@ -7,6 +7,7 @@ public class ChatsBehavior : MonoBehaviour
     
     public LevelManager manager;
 
+
     public int id = -1;
     
     public int value = 1;
@@ -33,7 +34,7 @@ public class ChatsBehavior : MonoBehaviour
             //other.gameObject.GetComponent<ChatsBehavior>();
 
             manager.ChangeSpeed(other.gameObject.GetComponent<ChatsBehavior>().id);
-            Debug.Log("chat collision");
+            //Debug.Log("chat collision");
         }
 
     }

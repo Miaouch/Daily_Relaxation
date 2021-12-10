@@ -1,11 +1,11 @@
 @font-face {
     font-family: "cherry";
-    src: url(../font/cherryBomb-title.ttf);
+    src: url(../font/CherryBomb-Regular.ttf);
 }
 
 @font-face {
     font-family: "caviar";
-    src: url(../font/caviarDreams-text.ttf);
+    src: url(../font/CaviarDreams.ttf);
 }
 
 .title{
@@ -17,96 +17,252 @@
     font-size:x-large;
 }
 
-html{
-  width: auto;
-  height:3700px;
-  color:white;
-  display:flex;
+*{
+    margin:0;
+    padding:0;
 }
 
 body{
-    background-image: linear-gradient(to bottom, #000000, #361360, #4d1491, #630fc7, #7a00ff);
     width: 100%;
-    margin:3% 10%;
-    padding:0;
     text-align: center;
+    color:rgb(255, 255, 255);
+    overflow: overlay;
+    /* to hide 2 scrollbar  */
 }
 
-nav > ul {
-    display:flex;
+
+#home{
+    background-image: linear-gradient(to bottom, #9ad2ff, #87b9e2);
+}
+
+#game{
+    background-image: linear-gradient(to bottom, #81b8e6, #97adfe);
+}
+
+#informations{
+    background-image: linear-gradient(to bottom, #97adfe, #b5a2ff);
+}
+
+#we{
+    background-image: linear-gradient(to bottom, #b5a2ff, #d992ff);
+    padding-top: 10%;
+}
+
+.containerBody{
     width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+   /*  background-attachment: static;
+    background-repeat: no-repeat; */
+}
+
+nav{
+    top: 0;
+    position:fixed;
+    z-index: 1;
+    width: 100%;
+    display:flex;
+    height:12%;
+    font-size: x-large;
+    background-color: rgba(255, 255, 255, 0.24);
+}
+
+nav ul {
+    display:flex;
     list-style: none;
+    position:absolute;
+    width: 100%;
     justify-content: center;
-    margin-bottom: 10%;
+    align-content: center;
+    margin-top: 3.5%;
 }
 
-nav > ul > li {
-    padding-right:5%;
-    font-size:x-large;
-}
 
-nav > ul > li > a {
+nav ul li a {
+    margin: 1% 1rem;
+    padding: 1rem;
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
+    border-bottom: 4px solid transparent;
+    transition: padding-bottom .4s ease-in-out, border-color  .3s ease, color .2s;
+}
+
+.logo{
+    font-size: 3rem; 
+    margin-top: -1.5%;
+}
+
+nav ul li a:hover{
+    border-bottom-color: #b5a2ff;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center;
+}
+
+.container{
+    overflow: overlay;
+    width: 85%;
+    float:left;
+    padding-top:10%;
+}
+
+.container img{
+    width: 20%;
+}
+
+.kittyGreyNormal{
+   padding-left: 40%;
+}
+.kittyBrownDown{
+    margin-left: -10%;
+    margin-top: 5%;
+}
+
+.kittyBrownLeft{
+    width: 90%;
+    padding-left: 38%;
+    padding-top: 25%;
+}
+
+.kittyGreyUp{
+    width: 30%;
+    padding-top: 30%;
+    padding-left: 4%;
+}
+
+.homePage, .gamePage{
+    margin-left: 9%;
+    margin-right: 9%;
+}
+
+.homePageContent{
+    padding-bottom: 20%;
 }
 
 .welcom{
-    margin-top:15%;
-    margin-bottom:10%;
+    font-size: xx-large;
+    margin-bottom: 5%;
 }
 
 .scroll{
-    margin-top:8%;
-    font-weight:bolder;
-    font-size:xx-large;
+    margin-top: 7%;
 }
 
-.arrow{
-    margin-bottom:20%;
+.gamePage{
+    margin-top: 5%;
+}
+
+.gamePage h1{
+    margin-bottom: 2%;
+    font-size: xx-large;
 }
 
 .game{
-    border: 1px solid purple;
-    width: 100%;
-    height:700px;
+    border: 2px solid rgb(22, 51, 214);
+    width: 70rem;
+    height: 540px;
+    display: flex;
 }
 
-
-.gamePlayText{
-    margin-bottom:20%;
+.gameInfo summary, .gameInfo p{
+    width: 70rem;
+    margin-left: 0.23%;
+    background-color: rgba(255, 255, 255, 0.24);
 }
 
-.question{
-    font-family: "Cherry";
-}
-
-.answer{
-    margin-bottom:15%;
-    font-family: "Caviar";
+.gameInfo summary{
     font-size: larger;
 }
 
+.gameInfo p{
+    font-size: large;
+}
+
 .containerQuestions{
-    display:grid;
-    grid-template-columns:30% 30% 30%;
-    grid-column-gap: 5%;
+    display: grid;
+    justify-content: center;
+    margin: 0% 10%;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 3%;
+    margin-bottom: 5%;
 }
 
-.answer1,.answer2,.answer3{
+
+.question{
+    font-family: "Cherry";
+    margin-bottom: 5%;
+}
+
+.answer{
     font-family: "Caviar";
-    margin-bottom:15%;
 }
 
-.answer2{
-    margin-top: 16%;
+.lastQuestion {
+    font-family: "Cherry";
+    margin-bottom: 1.5%;
+}
+
+.lastAnswer{
+    font-family: "Caviar";
+    margin: 0% 10%;
+}
+
+.whoWeAre1{
+    font-size: xx-large;
+    padding-bottom: 2%;
+    margin-top: -25%;
+}
+
+.weContainer{
+   width: 70%;
+   justify-content: center;
 }
 
 .we{
-    margin-top:10%;
-    margin-bottom: 20%;
+    display: grid;
+    align-content: center;
+   width: 100%;
+   grid-template-columns: 25% 25% 25% 25%;
 }
 
-.copyRight{
-    margin-top: 40%;
-    font-size:x-large;
+.we div h3{
+    font-family: "Cherry";
+    font-size: x-large;
 }
+
+.teamDR{
+    font-size: xx-large;
+    padding-bottom: 2%;
+}
+
+.elisabettaImg{
+    width: 80%;
+}
+.melanieImg{
+    width: 65%;
+}
+
+.marieImg{
+    width: 48.5%;
+}
+
+.nisrineImg{
+    width: 50%;
+}
+
+
+/* footer{ 
+    margin-top: 10%;
+    clear: both;
+    font-size: xx-large;
+} */
