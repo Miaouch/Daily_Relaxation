@@ -41,9 +41,11 @@ public class LevelManager : MonoBehaviour
     public float timeToRestart = 5f;
 
     private float waitPauseTime = 10f;
-    private float pauseDuration = 5f;
+    //private float pauseDuration = 5f;
     private bool pauseMode = false;
     private bool waitMode = false;
+
+    private bool stopPause;
 
     public bool miaoCanBeClicked = false;
 
@@ -71,7 +73,6 @@ public class LevelManager : MonoBehaviour
         //Debug.Log(randomZone);
     }
     
-
     private void Update() {
 
         timerRealChat -= Time.deltaTime;
@@ -220,6 +221,13 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("LOOOSE");
                 StartCoroutine(StartRestartLoose());
             }
+            stopPause = true;
+            
+           
+            StartCoroutine(StartRestart());
+
+            
+            Debug.Log(stopPause);
         }
     }
     IEnumerator StartRestartPause()
@@ -278,23 +286,14 @@ public class LevelManager : MonoBehaviour
     {
         waitMode = true;
         yield return new WaitForSeconds(waitPauseTime);
-        StartCoroutine(StartPauseMode());
+        StartPauseMode();
         waitMode = false;       
     }
 
-    IEnumerator StartPauseMode()
+    void  StartPauseMode()
     {
         pauseMode = true;
         miaoCanBeClicked = true;
-        //for (int l=0; l< listChats.Count;l++)
-        //{
-        //    if (listChats[l].name == "BlueChat")
-        //    {
-        //        miaoRenderer = listChats[l].GetComponent<Renderer>();
-        //        miaoRenderer.material = materialsChats[0];
-        //    }
-        //}
-        yield return new WaitForSeconds(pauseDuration);
         
 
         // this.GetComponent<Rigidbody>().velocity = Vector3.zero;

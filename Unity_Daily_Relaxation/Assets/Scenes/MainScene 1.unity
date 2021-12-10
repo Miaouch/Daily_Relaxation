@@ -245,8 +245,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488261299}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -16, y: 4.2, z: 3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1006,7 +1004,6 @@ MonoBehaviour:
   speeds: []
   materialsChats:
   - {fileID: 2100000, guid: 1168250e1348aed468202e6758f53f95, type: 2}
-  - {fileID: 2100000, guid: a299c2563e108d34f90b84a08d5d042f, type: 2}
   listCount: 15
   whenPlayerWins:
     m_PersistentCalls:
