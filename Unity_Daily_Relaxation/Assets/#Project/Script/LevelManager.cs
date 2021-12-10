@@ -101,7 +101,7 @@ public class LevelManager : MonoBehaviour
         {
             if (Vector3.Distance(listChats[c].transform.position,randomZone) > (dimensionZone*Mathf.Sqrt(3)/2))
             {             
-                speed[c] = -speed[c];
+                speeds[c] = -speeds[c];
             }
         }
 
