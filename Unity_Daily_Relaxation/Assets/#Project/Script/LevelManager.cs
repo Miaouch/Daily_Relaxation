@@ -52,6 +52,10 @@ public class LevelManager : MonoBehaviour
     public int index;
 
     public zoneBehavior limit;
+    public bool activeStatePanel1;
+    public GameObject targetObjectPanel1;
+    public bool activeStatePanel2;
+    public GameObject targetObjectPanel2;
 
     private void Awake()
     {
@@ -63,7 +67,7 @@ public class LevelManager : MonoBehaviour
  
     private void Start() 
     {
-
+        targetObjectPanel1.SetActive(activeStatePanel1);
         //Debug.Log(randomZone);
     }
     
@@ -101,7 +105,7 @@ public class LevelManager : MonoBehaviour
         {
             if (Vector3.Distance(listChats[c].transform.position,randomZone) > (dimensionZone*Mathf.Sqrt(3)/2))
             {             
-                speed[c] = -speed[c];
+                speeds[c] = -speeds[c];
             }
         }
 
@@ -121,7 +125,7 @@ public class LevelManager : MonoBehaviour
                         //Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
                         Debug.Log("material Chats grey"+ materialsChats[1]);
-                        miaoCanBeClicked = true;
+                        //miaoCanBeClicked = true;
                         
                         if (!pauseMode && !waitMode)
                         {
@@ -208,27 +212,56 @@ public class LevelManager : MonoBehaviour
             {
                 Debug.Log("how many correct (win)" + howManyCorrect);
                 Debug.Log("WIIIIIIN");
-                StartCoroutine(StartRestart());
+                StartCoroutine(StartRestartWin());
             }
             else
             {
                 Debug.Log("how many correct (loose) " + howManyCorrect);
                 Debug.Log("LOOOSE");
-               
+                StartCoroutine(StartRestartLoose());
             }
         }
     }
-
-    IEnumerator StartRestart()
+    IEnumerator StartRestartPause()
     {
+        Debug.Log("activeStatePanel1");
         Debug.Log("start the coroutine");
         yield return new WaitForSeconds(timeToRestart);
-        Restart();
+        //Restart();
     }
-
-    public void Restart()
+    IEnumerator StartRestartWin()
+    {
+        activeStatePanel1 = !activeStatePanel1;
+        targetObjectPanel1.SetActive(activeStatePanel1);
+        Debug.Log("activeStatePanel1");
+        Debug.Log("start the coroutine");
+        yield return new WaitForSeconds(timeToRestart);
+        RestartWin();
+    }
+    IEnumerator StartRestartLoose()
+    {
+        activeStatePanel2 = !activeStatePanel2;
+        targetObjectPanel2.SetActive(activeStatePanel2);
+        Debug.Log("activeStatePanel2");
+        Debug.Log("start the coroutine");
+        yield return new WaitForSeconds(timeToRestart);
+        RestartLoose();
+    }
+    // public void Restart()
+    // {
+    //     SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+    // }
+    public void RestartWin()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        activeStatePanel1 = !activeStatePanel1;
+        targetObjectPanel1.SetActive(activeStatePanel1);
+    }
+    public void RestartLoose()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        activeStatePanel2 = !activeStatePanel2;
+        targetObjectPanel2.SetActive(activeStatePanel2);
     }
 
     public void ChangeSpeed(int id)
@@ -263,7 +296,15 @@ public class LevelManager : MonoBehaviour
         //}
         yield return new WaitForSeconds(pauseDuration);
         
-        StartCoroutine(StartRestart());
+
+        // this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        // this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        // find the speed before
+        
+
+
+        //StartCoroutine(StartRestartPause());
         pauseMode = false;
     }
 

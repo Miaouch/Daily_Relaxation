@@ -40,7 +40,7 @@ public class ChatsHighLight : MonoBehaviour
 
     }
     private void OnMouseDown() {
-        if(levelManager.howManyClick < 3)// && levelManager.miaoCanBeClicked)
+        if(levelManager.howManyClick < 3 && levelManager.miaoCanBeClicked)
         {
             Debug.Log("how many click " + levelManager.howManyClick);
             levelManager.howManyClick +=1;
