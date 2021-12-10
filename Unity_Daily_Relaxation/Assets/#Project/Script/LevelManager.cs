@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public static int dimensionZone = 10;
+    public static int dimensionZone = 14;
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
     public GameObject bluePrefab;
@@ -82,12 +82,26 @@ public class LevelManager : MonoBehaviour
                 blueChat.transform.position += deplacement;
             }           
         }
+        // for (int c = 0; c < listChats.Count; c++)
+        // {
+        //     if (Vector3.Distance(listChats[c].transform.position,randomZone)(speed[c] = -speed[c]) > (dimensionZone*Mathf.Sqrt(3)/2))
+        //     {
+        //         float x = Random.Range(randomZone.x - (dimensionZone / 2), randomZone.x + (dimensionZone / 2));
+        //         float y = Random.Range(randomZone.y - (dimensionZone / 2), randomZone.y + (dimensionZone / 2)); ;
+        //         float z = Random.Range(randomZone.z - (dimensionZone / 2), randomZone.z + (dimensionZone / 2)); ;
+
+        //         Vector3 newPosition = new Vector3(x, y, z);
+
+        //         listChats[c].transform.position = newPosition;
+        //         // or Destroy(); ...
+        //         // or sens inverse
+        //     }
+        // }
         for (int c = 0; c < listChats.Count; c++)
         {
             if (Vector3.Distance(listChats[c].transform.position,randomZone) > (dimensionZone*Mathf.Sqrt(3)/2))
-            {              
+            {             
                 speed[c] = -speed[c];
-                              
             }
         }
 
