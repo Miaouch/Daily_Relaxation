@@ -6,7 +6,7 @@ public class ChatsHighLight : MonoBehaviour
 {
     [HideInInspector]
     
-    private MeshRenderer miaoRenderer;
+    public MeshRenderer miaoRenderer;
     //private Material originalMaterial;
     public Material highLightMaterial;
     

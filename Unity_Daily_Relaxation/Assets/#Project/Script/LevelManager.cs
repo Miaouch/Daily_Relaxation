@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public static int dimensionZone = 5;
+    public static int dimensionZone = 7;
     public Vector3 randomZone = Vector3.one * dimensionZone;
     public GameObject greyPrefab;
     public GameObject bluePrefab;
     public int nBlueChat=0;
-    private int nChats = 0;
+    
     public GameObject greyChat;
     public GameObject blueChat;
     public UnityEvent whenBlueChatTransformInGrey;
@@ -33,63 +33,66 @@ public class LevelManager : MonoBehaviour
     public bool isClicked = false;
     public int howManyClick = 0;
     public int howManyCorrect = 0;
-
     public GameObject limitPrefab;
+
     GameObject[] chatsGameObjects;
     public ChatsHighLight chatsHighLight;
     public bool isHighlight = false;
     public float timeToRestart = 5f;
-    public bool miaoCanBeClicked=false;
-    
+
+    private float waitPauseTime = 10f;
+    private float pauseDuration = 5f;
+    private bool pauseMode = false;
+    private bool waitMode = false;
+
+    public bool miaoCanBeClicked = false;
+
+    private Renderer miaoRenderer;
 
     public int index;
 
     public zoneBehavior limit;
 
-    private void Start() 
+    private void Awake()
     {
         miaoCanBeClicked = false;
         
 
-        if (nChats <= 15)
-        {
-            PopChats();
-        }
-
-        addSpeed();
-
-        GameObject limitZone = Instantiate(limitPrefab, randomZone, Quaternion.identity); 
-        Debug.Log(randomZone);
+    private void Start() 
+    {
+       
+        //Debug.Log(randomZone);
     }
 
     private void Update() {
 
         timerRealChat -= Time.deltaTime;
-        index = 0;
-        for (int j = 0; j <= listChats.Count - 1; j++)
+        
+        for (int j = 0; j < listChats.Count ; j++)
         {
-            deplacement = speeds[j] * Time.deltaTime;
-            listChats[j].transform.position += deplacement;
-            listChats[j].id = index;
-            listChats[j].manager = this;
-            greyChat.transform.position += deplacement;
-            blueChat.transform.position += deplacement;
-            index++;
+            if (!pauseMode)
+            {
+                deplacement = speeds[j] * Time.deltaTime;
+                listChats[j].transform.position += deplacement;
+                greyChat.transform.position += deplacement;
+                blueChat.transform.position += deplacement;
+            }           
         }
+        for (int c = 0; c < listChats.Count; c++)
+        {
+            if (Vector3.Distance(listChats[c].transform.position,randomZone) > (dimensionZone*Mathf.Sqrt(3)/2))
+            {
+                float x = Random.Range(randomZone.x - (dimensionZone / 2), randomZone.x + (dimensionZone / 2));
+                float y = Random.Range(randomZone.y - (dimensionZone / 2), randomZone.y + (dimensionZone / 2)); ;
+                float z = Random.Range(randomZone.z - (dimensionZone / 2), randomZone.z + (dimensionZone / 2)); ;
 
-        
-        
-        //for (int j = 0; j <= listChats.Count - 1; j++)
-        //{
-        //    speed = Random.onUnitSphere * speedFactor;
+                Vector3 newPosition = new Vector3(x, y, z);
 
-        //    deplacement = speed * Time.deltaTime;
-
-        //    listChats[j].transform.position += deplacement;
-        //    // greyChat.transform.position += deplacement;
-
-        //    // blueChat.transform.position += deplacement;
-        //}
+                listChats[c].transform.position = newPosition;
+                // or Destroy(); ...
+                // or sens inverse
+            }
+        }
 
         if (timerRealChat <= 0 && !miaoCanBeClicked)
         {
@@ -99,15 +102,22 @@ public class LevelManager : MonoBehaviour
                 var miaoRenderer = listChats[n].GetComponentInChildren<Renderer>();
                 if(miaoRenderer == null)
                 {
-                    Debug.Log("miao Renderer null");
+                    //Debug.Log("miao Renderer null");
                 }
                 else{
                     if(listChats[n].name == "BlueChat")
                     {
-                        Debug.Log("Blue Sphere");
+                        //Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
                         Debug.Log("material Chats grey"+ materialsChats[1]);
                         miaoCanBeClicked = true;
+                        
+                        if (!pauseMode && !waitMode)
+                        {
+                            StartCoroutine(WaitPauseMode());
+                        }
+
+                        //Debug.Log("material Chats grey"+ materialsChats[1]);
                     }
                 }
             }
@@ -117,12 +127,12 @@ public class LevelManager : MonoBehaviour
     }
 
     private void PopChats() {
-
-        for(int k=0; k<listCount; k++)
+        index = 0;
+        for (int k=0; k<listCount; k++)
         {
-            float x = Random.Range(0, randomZone.x);
-            float y = Random.Range(0, randomZone.y);
-            float z = Random.Range(0, randomZone.z);
+            float x = Random.Range(randomZone.x-(dimensionZone/2), randomZone.x + (dimensionZone/2));
+            float y = Random.Range(randomZone.y - (dimensionZone / 2), randomZone.y + (dimensionZone / 2)); ;
+            float z = Random.Range(randomZone.z - (dimensionZone / 2), randomZone.z + (dimensionZone / 2)); ;
 
             Vector3 position = new Vector3(x, y, z);
             
@@ -131,17 +141,24 @@ public class LevelManager : MonoBehaviour
                 GameObject blueChat = Instantiate(bluePrefab, position, Quaternion.identity);
                 listChats.Add(blueChat.GetComponent<ChatsBehavior>());
                 nBlueChat++;
-                blueChat.name = "BlueChat";
+                blueChat.name = "BlueChat";  // create 3 cats
             }
 
             GameObject greyChat = Instantiate(greyPrefab, position, Quaternion.identity);
-            listChats.Add(greyChat.GetComponent<ChatsBehavior>());           
-            nChats++;
+            listChats.Add(greyChat.GetComponent<ChatsBehavior>());      // create 15cats               
         }
+
+        for(int i=0; i< listChats.Count; i++)
+        {
+            listChats[i].id = index;   // attribue un num d'id
+            listChats[i].manager = this;
+            index++;
+        }
+
     }
     void addSpeed()
     {
-        for (int s = 0; s <= listChats.Count; s++)
+        for (int s = 0; s < listChats.Count; s++)
         {
             speed = Random.onUnitSphere * speedFactor;
             speeds.Add(speed);                   
@@ -152,10 +169,10 @@ public class LevelManager : MonoBehaviour
     {
         howManyCorrect = 0; //??
 
-        for(int l = 0; l <= listChats.Count-1; l++)
+        for(int l = 0; l <listChats.Count; l++)
         {
+            
             var miaoBool = listChats[l].GetComponent<ChatsHighLight>();
-
             if(miaoBool.chatSelected)
             {
                 Debug.Log("the cat is highlight");
@@ -186,7 +203,7 @@ public class LevelManager : MonoBehaviour
             {
                 Debug.Log("how many correct (loose) " + howManyCorrect);
                 Debug.Log("LOOOSE");
-                StartCoroutine(StartRestart());
+               
             }
         }
     }
@@ -212,4 +229,31 @@ public class LevelManager : MonoBehaviour
         DetectionDesChats();
         CeckVictory(); 
     }
+
+    IEnumerator WaitPauseMode()
+    {
+        waitMode = true;
+        yield return new WaitForSeconds(waitPauseTime);
+        StartCoroutine(StartPauseMode());
+        waitMode = false;       
+    }
+
+    IEnumerator StartPauseMode()
+    {
+        pauseMode = true;
+        miaoCanBeClicked = true;
+        //for (int l=0; l< listChats.Count;l++)
+        //{
+        //    if (listChats[l].name == "BlueChat")
+        //    {
+        //        miaoRenderer = listChats[l].GetComponent<Renderer>();
+        //        miaoRenderer.material = materialsChats[0];
+        //    }
+        //}
+        yield return new WaitForSeconds(pauseDuration);
+        
+        StartCoroutine(StartRestart());
+        pauseMode = false;
+    }
+
 }
