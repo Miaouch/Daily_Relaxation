@@ -127,7 +127,8 @@ section{
     overflow: overlay;
     width: 85%;
     float:left;
-    padding-top: 10%;
+    margin-top: -5%;
+    
 }
 
 .container img{
@@ -150,21 +151,65 @@ section{
     width: 70%;
 }
 
-.upLeft2{
+.upLeft2, .upLeft3{
     width: 50%;
     padding-left: 300%;
     padding-bottom: 15%; 
 }
 
-.upRight2{
+.upRight2, .upRight3{
     padding-left: 300%;
 }
-
 
 .upRight1, .upRight2{
     width: 70%;
 }
 
+.secondLineOne3{
+    width: 200%;
+}
+
+.secondLineTwo3{
+    width: 200%;
+    margin-left: -30%;
+    padding-top: 5%;
+}
+
+.secondLineThree3{
+    width: 200%;
+    margin-left: -65%;
+    padding-top: 5%;
+}
+
+.secondLineFour3{
+    width: 200%;
+    margin-left: -100%;
+}
+
+.firstLineOne3{
+    padding-top: 10%;
+    width: 200%;
+}
+
+.firstLineTwo3{
+    margin-top: 10%;
+    width: 200%;
+    margin-left: -30%;
+    padding-top: 5%;
+}
+
+.firstLineThree3{
+    margin-top: 10%;
+    width: 200%;
+    margin-left: -65%;
+    padding-top: 5%;
+}
+
+.firstLineFour3{
+    padding-top: 10%;
+    width: 200%;
+    margin-left: -100%;
+}
 .secondLineOne1, .secondLineOne2{
     padding-top: 20%;
     width: 200%;
@@ -254,7 +299,7 @@ section{
 }
 
 .scroll{
-    margin-top: 7%;
+    margin-top: 3%;
 }
 
 .gamePage{
@@ -320,18 +365,28 @@ section{
     margin: 0% 10%;
 }
 
+.presentation{
+    margin-top: -55%;
+}
+
 .whoWeAre1{
     font-size: xx-large;
     padding-bottom: 2%;
-    margin-top: -25%;
+    margin-top: 40%;
 }
 
 .weContainer{
    width: 70%;
    justify-content: center;
+    padding-left: 15%;
+}
+
+.block{
+    margin-top: -30%;
 }
 
 .we{
+    justify-content: center;
     display: grid;
     align-content: center;
    width: 100%;
