@@ -25,7 +25,7 @@
 body{
     width: 100%;
     text-align: center;
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
     overflow: overlay;
     /* to hide 2 scrollbar  */
 }
@@ -66,7 +66,7 @@ nav{
     display:flex;
     height:12%;
     font-size: x-large;
-    background-color: rgba(255, 255, 255, 0.24);
+    background-color: rgba(88, 88, 88, 0.24);
 }
 
 nav ul {
@@ -84,7 +84,7 @@ nav ul li a {
     margin: 1% 1rem;
     padding: 1rem;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border-bottom: 4px solid transparent;
     transition: padding-bottom .4s ease-in-out, border-color  .3s ease, color .2s;
 }
@@ -116,7 +116,151 @@ section{
     padding-top:10%;
 }
 
+.container2{
+    overflow: overlay;
+    width: 85%;
+    float:left;
+    margin-bottom: 30%;
+}
+
+.container3{
+    overflow: overlay;
+    width: 85%;
+    float:left;
+    margin-top: -5%;
+    
+}
+
 .container img{
+    width: 20%;
+}
+
+.upLeft1 {
+    width: 50%;
+    padding-left: 30%;
+    padding-bottom: 5%; 
+}
+
+.upLeft2{
+    width: 50%;
+    padding-left: 30%;
+    padding-bottom: 5%; 
+}
+
+.upRight1{
+    width: 70%;
+}
+
+.upLeft2, .upLeft3{
+    width: 50%;
+    padding-left: 300%;
+    padding-bottom: 15%; 
+}
+
+.upRight2, .upRight3{
+    padding-left: 300%;
+}
+
+.upRight1, .upRight2{
+    width: 70%;
+}
+
+.secondLineOne3{
+    width: 200%;
+}
+
+.secondLineTwo3{
+    width: 200%;
+    margin-left: -30%;
+    padding-top: 5%;
+}
+
+.secondLineThree3{
+    width: 200%;
+    margin-left: -65%;
+    padding-top: 5%;
+}
+
+.secondLineFour3{
+    width: 200%;
+    margin-left: -100%;
+}
+
+.firstLineOne3{
+    padding-top: 10%;
+    width: 200%;
+}
+
+.firstLineTwo3{
+    margin-top: 10%;
+    width: 200%;
+    margin-left: -30%;
+    padding-top: 5%;
+}
+
+.firstLineThree3{
+    margin-top: 10%;
+    width: 200%;
+    margin-left: -65%;
+    padding-top: 5%;
+}
+
+.firstLineFour3{
+    padding-top: 10%;
+    width: 200%;
+    margin-left: -100%;
+}
+.secondLineOne1, .secondLineOne2{
+    padding-top: 20%;
+    width: 200%;
+}
+.secondLineThree1, .secondLineThree2{
+    padding-top: 25%;
+    width: 200%;
+    margin-left: -30%;
+}
+
+.secondLineTwo1, .secondLineTwo2{
+    padding-top: 25%;
+    width: 200%;
+    margin-left: -62%;
+}
+
+.secondLineFour1, .secondLineFour2{
+    width: 200%;
+    margin-left: -100%;
+    padding-top: 22%;
+}
+
+.firstLineFour1, .firstLineFour2{
+    padding-top: 30%;
+    margin-left: -5%;
+    width: 200%;
+}
+
+.firstLineThree1, .firstLineThree2{
+    padding-top: 35%;
+    width: 200%;
+    margin-left: -35%;
+}
+
+.firstLineTwo1, .firstLineTwo2{
+    padding-top: 35%;
+    width: 200%;
+    margin-left: -70%;
+}
+
+.firstLineOne1, .firstLineOne2{
+    padding-top: 30%;
+    width: 200%;
+    margin-left: -100%
+}
+
+.container2 img{
+    width: 20%;
+}
+
+.container3 img{
     width: 20%;
 }
 
@@ -155,7 +299,7 @@ section{
 }
 
 .scroll{
-    margin-top: 7%;
+    margin-top: 3%;
 }
 
 .gamePage{
@@ -175,20 +319,27 @@ section{
 }
 
 .gameInfo summary, .gameInfo p{
+    margin-top: 2%;
     width: 70rem;
     margin-left: 0.23%;
     background-color: rgba(255, 255, 255, 0.24);
 }
 
-.gameInfo summary{
-    font-size: larger;
+summary{
+    font-size: xx-large;
+}
+
+.gaaame{
+    width: 70%;
 }
 
 .gameInfo p{
+    width: 70%;
     font-size: large;
 }
 
 .containerQuestions{
+    padding-top: 20%;
     display: grid;
     justify-content: center;
     margin: 0% 10%;
@@ -197,6 +348,9 @@ section{
     margin-bottom: 5%;
 }
 
+.upLeft2{
+    margin-top: -20%;
+}
 
 .question{
     font-family: "Cherry";
@@ -217,18 +371,28 @@ section{
     margin: 0% 10%;
 }
 
+.presentation{
+    margin-top: -55%;
+}
+
 .whoWeAre1{
     font-size: xx-large;
     padding-bottom: 2%;
-    margin-top: -25%;
+    margin-top: 40%;
 }
 
 .weContainer{
    width: 70%;
    justify-content: center;
+    padding-left: 15%;
+}
+
+.block{
+    margin-top: -30%;
 }
 
 .we{
+    justify-content: center;
     display: grid;
     align-content: center;
    width: 100%;
@@ -260,6 +424,9 @@ section{
     width: 50%;
 }
 
+.veryLastQuestion{
+    margin-bottom: -3%;
+}
 
 /* footer{ 
     margin-top: 10%;

@@ -7,6 +7,7 @@
     <title>daily_relaxation</title>
     <link rel="stylesheet" href="./public/css/style.css">
     <link rel="icon" href="./public/img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./TemplateData/style.css">
 </head>
 <body>
     <div class="lastTry">
@@ -26,6 +27,16 @@
             <section id="home">
                 <div class="container">
                     <ul id="scene">
+                        <li class="layer cloud1 up upLeft1" data-depth="-0.5"><img src="./public/img/cloud/upLeft.png" alt=""></li>
+                            <li class="layer cloud up upRight1" data-depth="-0.5"><img src="./public/img/cloud/upRight.png" alt=""></li>
+                            <li class="layer cloud first firstLineFour1" data-depth="-0.5"><img src="./public/img/cloud/firstLine4.png" alt=""></li>
+                            <li class="layer cloud first firstLineThree1" data-depth="-0.5"><img src="./public/img/cloud/firstLine3.png" alt=""></li>
+                            <li class="layer cloud first firstLineTwo1" data-depth="-0.5"><img src="./public/img/cloud/firstLine2.png" alt=""></li>
+                            <li class="layer cloud first firstLineOne1" data-depth="-0.5"><img src="./public/img/cloud/firstLine1.png" alt=""></li>
+                            <li class="layer cloud second secondLineFour1" data-depth="-0.5"><img src="./public/img/cloud/secondLine4.png" alt=""></li>
+                            <li class="layer cloud second secondLineThree1" data-depth="-0.5"><img src="./public/img/cloud/secondLine3.png" alt=""></li>
+                            <li class="layer cloud second secondLineTwo1" data-depth="-0.5"><img src="./public/img/cloud/secondLine2.png" alt=""></li>
+                            <li class="layer cloud second secondLineOne1" data-depth="-0.5"><img src="./public/img/cloud/secondLine1.png" alt=""></li>
                         <li class="layer kittyGreyNormal" data-depth="1.5">
                             <img src="./public/img/kittyGreyNormal.png" alt="">
                         </li>
@@ -43,7 +54,7 @@
                  <div class="homePage">
                      <div class="homePageContent">
                         <h1 class="title welcom">Bienvenue dans Daily relaxation</h1>
-                        <p class="text">Daily relaxation est un jeu gratuit qui vous aidera à vous détendre et calmer votre stress après une longue journée riche en émotion. Installez-vous confortablement. Profitez de ce moment de détente pour vous recentrer sur vous-même tout en étant accompagné d’adorables petits félins.</p>
+                        <p class="text">Daily relaxation est un site de jeux gratuits qui vous aideront à vous détendre et calmer votre stress après une longue journée riche en émotion. Installez-vous confortablement. Profitez de ce moment de détente pour vous recentrer sur vous-même tout en étant accompagné d’adorables petits félins.</p>
                         <p class="text scroll">scroll</p>
                         <img class="arrow" src="./public/img/arrow.png" alt="arrow">
                      </div>
@@ -53,15 +64,12 @@
                 <section id="game">
                     <div class="gamePage">
                         <h1 class="title">Relax Kitty</h1>
-                        <div class="game">
-                            <aside>
-            
-                            </aside>
-                        </div>
-                        <details class="gameInfo">
-                            <summary class="title">Comment jouer?</summary>
-                            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati culpa commodi labore id vitae mollitia sit aperiam eius, vel enim ea molestias accusamus, neque vero repellat, qui omnis quidem cumque adipisci dolore laboriosam quos molestiae? Et quibusdam repellat adipisci nisi! Blanditiis aperiam animi voluptates! Pariatur odit tenetur voluptatem quas! Recusandae?</p>
-                        </details>
+                        <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
+                    </div>
+                    <div class="gaaame">
+                        <summary class="title">Comment jouer?</summary>
+                        <p class="text">Pour jouer, il faut suivre les chats blancs et roux. Après quelques secondes ils deviennent gris. Une fois qu'ils sont figés
+                            tu peux cliquer pour les retrouver parmis tous les chats.</p>
                     </div>
                 </section>
         
@@ -75,42 +83,75 @@
                             <h1 class="question">Quel sont ses effets?</h1>
                             <p class="answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque nisi dolores voluptas, modi architecto tempora dolorum ex minus hic accusamus assumenda perferendis quasi labore, quisquam soluta laborum laudantium corporis nostrum eveniet repellat aliquid fugiat. Accusantium obcaecati rerum quo recusandae commodi molestias corporis, itaque iusto optio voluptas laboriosam ullam distinctio a!</p>
                         </div>
-            
+                        
                         <div>
                             <h1 class="question">Comment gérer son stress</h1>
                             <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam dolor eos voluptatum hic quod doloribus recusandae unde porro nostrum optio? Corporis quasi saepe expedita, ullam temporibus qui velit vitae suscipit ab officiis aliquam cum pariatur cumque dolores placeat, nobis distinctio quia? Perferendis impedit consectetur a sint iusto suscipit adipisci minima.</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="veryLastQuestion">
                         <h1 class="lastQuestion">Comment Relax kitty et Calm down peuvent-ils me calmer?</h1>
-                        <p class="lastAnswer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam ullam hic, fugiat, a asperiores totam illo ex tempora rerum reiciendis eligendi velit praesentium ipsam quae. Quia, magni sint corrupti temporibus repudiandae perspiciatis quo nulla dolorum facilis dignissimos reprehenderit dolores, laudantium placeat nesciunt enim cumque eum molestiae quaerat dolorem soluta.</p>
+                        <p class="lastAnswer">C'est une méthode de relaxation qui consiste en un neuro-massage. Le jeu permet de se détendre et penser à autre chose.
+                            Pendant le jeu, profites-en pour te relaxer dans notre univers de chats à belles frimousses.</p>
+                    </div>
+                    <div class="container2">
+                        <ul id="scene2">
+                            <li class="layer cloud1 up upLeft2" data-depth="-0.5"><img src="./public/img/cloud/upLeft.png" alt=""></li>
+                            <li class="layer cloud2 up upRight2" data-depth="-0.5"><img src="./public/img/cloud/upRight.png" alt=""></li>
+                            <li class="layer cloud3 first firstLineFour2" data-depth="-0.5"><img src="./public/img/cloud/firstLine4.png" alt=""></li>
+                            <li class="layer cloud4 first firstLineThree2" data-depth="-0.5"><img src="./public/img/cloud/firstLine3.png" alt=""></li>
+                            <li class="layer cloud5 first firstLineTwo2" data-depth="-0.5"><img src="./public/img/cloud/firstLine2.png" alt=""></li>
+                            <li class="layer cloud6 first firstLineOne2" data-depth="-0.5"><img src="./public/img/cloud/firstLine1.png" alt=""></li>
+                            <li class="layer cloud7 second secondLineFour2" data-depth="-0.5"><img src="./public/img/cloud/secondLine4.png" alt=""></li>
+                            <li class="layer cloud8f second secondLineThree2" data-depth="-0.5"><img src="./public/img/cloud/secondLine3.png" alt=""></li>
+                            <li class="layer cloud9 second secondLineTwo2" data-depth="-0.5"><img src="./public/img/cloud/secondLine2.png" alt=""></li>
+                            <li class="layer cloud310 second secondLineOne2" data-depth="-0.5"><img src="./public/img/cloud/secondLine1.png" alt=""></li>
+                        </ul>
                     </div>
                 </section>
         
                 <section id="we">
-                    <h1 class="title whoWeAre1">Qui sommes-nous?</h1>
-                    <h2 class="title teamDR">La team Dialy relaxation:</h2>
-                    <div class="weContainer">
-                        <div class="we">
-                            <div class="elisabetta">
-                                <img class="elisabettaImg" src="./public/img/elisabetta.png" alt="elisabetta">
-                                <h3>Elisabetta</h3>
-                                <h1 class="title">Game</h1>
-                            </div>
-                            <div class="maria">
-                                <img class="marieImg" src="./public/img/marie.png" alt="marie">
-                                <h3>Marie</h3>
-                                <h1 class="title">Game</h1>
-                            </div>
-                            <div class="melanie">
-                                <img class="melanieImg" src="./public/img/melanie.png" alt="melanie">
-                                <h3>Mélanie</h3>
-                                <h1 class="title">Game</h1>
-                            </div>
-                            <div class="nisrine">
-                                <img class="nisrineImg" src="./public/img/nisrine.png" alt="nisrine">
-                                <h3>Nisrine</h3>
-                                <h1 class="title">Web</h1>
+                    <div class="container3">
+                        <ul id="scene3">
+                            <li class="layer cloud1 up upLeft3" data-depth="-0.5"><img src="./public/img/cloud/upLeft.png" alt=""></li>
+                            <li class="layer cloud2 up upRight3" data-depth="-0.5"><img src="./public/img/cloud/upRight.png" alt=""></li>
+                            <li class="layer cloud3 first firstLineFour3" data-depth="-0.5"><img src="./public/img/cloud/firstLine4.png" alt=""></li>
+                            <li class="layer cloud4 first firstLineThree3" data-depth="-0.5"><img src="./public/img/cloud/firstLine3.png" alt=""></li>
+                            <li class="layer cloud5 first firstLineTwo3" data-depth="-0.5"><img src="./public/img/cloud/firstLine2.png" alt=""></li>
+                            <li class="layer cloud6 first firstLineOne3" data-depth="-0.5"><img src="./public/img/cloud/firstLine1.png" alt=""></li>
+                            <li class="layer cloud7 second secondLineFour3" data-depth="-0.5"><img src="./public/img/cloud/secondLine4.png" alt=""></li>
+                            <li class="layer cloud8f second secondLineThree3" data-depth="-0.5"><img src="./public/img/cloud/secondLine3.png" alt=""></li>
+                            <li class="layer cloud9 second secondLineTwo3" data-depth="-0.5"><img src="./public/img/cloud/secondLine2.png" alt=""></li>
+                            <li class="layer cloud310 second secondLineOne3" data-depth="-0.5"><img src="./public/img/cloud/secondLine1.png" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <div class="presentation">
+                            <h1 class="title whoWeAre1">Qui sommes-nous?</h1>
+                            <h2 class="title teamDR">La team Dialy relaxation:</h2>
+                        </div>
+                        <div class="weContainer">
+                            <div class="we">
+                                <div class="elisabetta">
+                                    <img class="elisabettaImg" src="./public/img/elisabetta.png" alt="elisabetta">
+                                    <h3>Elisabetta</h3>
+                                    <h1 class="title">Game</h1>
+                                </div>
+                                <div class="maria">
+                                    <img class="marieImg" src="./public/img/marie.png" alt="marie">
+                                    <h3>Marie</h3>
+                                    <h1 class="title">Game</h1>
+                                </div>
+                                <div class="melanie">
+                                    <img class="melanieImg" src="./public/img/melanie.png" alt="melanie">
+                                    <h3>Mélanie</h3>
+                                    <h1 class="title">Game</h1>
+                                </div>
+                                <div class="nisrine">
+                                    <img class="nisrineImg" src="./public/img/nisrine.png" alt="nisrine">
+                                    <h3>Nisrine</h3>
+                                    <h1 class="title">Web</h1>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,5 +162,19 @@
     
     <script src="./public/js/parallax.min.js"></script>
     <script src="./public/js/script.js"></script>
+    <script src="./Builds_Webgl/Build/Builds_Webgl.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "./Builds_Webgl/Build/Builds_Webgl.data.unityweb",
+        frameworkUrl: "./Builds_Webgl/Build/Builds_Webgl.framework.js.unityweb",
+        codeUrl: "./Builds_Webgl/Build/Builds_Webgl.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Daily_Relaxation",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
 </body>
 </html>
