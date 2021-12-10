@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: df0992d39468a3847a7cd4d435521161, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -245,11 +245,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488261299}
+  m_LocalRotation: {x: 0.28005835, y: 0.6654991, z: -0.29864016, w: 0.6240932}
+  m_LocalPosition: {x: -9.341414, y: 21.426132, z: 3.8907633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &488261303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,8 +997,8 @@ MonoBehaviour:
   greyPrefab: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
   bluePrefab: {fileID: 7978130451249896586, guid: 4ebbe5521a980f24c85f693cd5477150, type: 3}
   nBlueChat: 0
-  greyChat: {fileID: 6513986391724219991, guid: f623c858aa100a84faba5467e4177551, type: 3}
-  blueChat: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
+  greyChat: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
+  blueChat: {fileID: 7978130451249896586, guid: 4ebbe5521a980f24c85f693cd5477150, type: 3}
   whenBlueChatTransformInGrey:
     m_PersistentCalls:
       m_Calls: []
@@ -1004,6 +1006,7 @@ MonoBehaviour:
   speeds: []
   materialsChats:
   - {fileID: 2100000, guid: 1168250e1348aed468202e6758f53f95, type: 2}
+  - {fileID: 2100000, guid: a299c2563e108d34f90b84a08d5d042f, type: 2}
   listCount: 15
   whenPlayerWins:
     m_PersistentCalls:
@@ -1029,6 +1032,10 @@ MonoBehaviour:
   miaoCanBeClicked: 0
   index: 0
   limit: {fileID: 0}
+  activeStatePanel1: 0
+  targetObjectPanel1: {fileID: 0}
+  activeStatePanel2: 0
+  targetObjectPanel2: {fileID: 0}
 --- !u!4 &1856806990
 Transform:
   m_ObjectHideFlags: 0
