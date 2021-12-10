@@ -546,6 +546,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4572730581458203134, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572730581475943634, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572730581475943635, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572730581475943636, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572730581475943636, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572730581475943636, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4572730582868227250, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
