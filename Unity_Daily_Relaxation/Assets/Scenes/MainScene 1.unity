@@ -997,8 +997,8 @@ MonoBehaviour:
   greyPrefab: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
   bluePrefab: {fileID: 7978130451249896586, guid: 4ebbe5521a980f24c85f693cd5477150, type: 3}
   nBlueChat: 0
-  greyChat: {fileID: 6513986391724219991, guid: f623c858aa100a84faba5467e4177551, type: 3}
-  blueChat: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
+  greyChat: {fileID: 1929700427308770854, guid: c07fbf1da9cab9145b03488ea323506c, type: 3}
+  blueChat: {fileID: 7978130451249896586, guid: 4ebbe5521a980f24c85f693cd5477150, type: 3}
   whenBlueChatTransformInGrey:
     m_PersistentCalls:
       m_Calls: []
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   speeds: []
   materialsChats:
   - {fileID: 2100000, guid: 1168250e1348aed468202e6758f53f95, type: 2}
-  - {fileID: 2100000, guid: de680018a2763434e9ca99065f49b8b6, type: 2}
+  - {fileID: 2100000, guid: a299c2563e108d34f90b84a08d5d042f, type: 2}
   listCount: 15
   whenPlayerWins:
     m_PersistentCalls:
