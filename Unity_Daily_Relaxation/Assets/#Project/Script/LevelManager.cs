@@ -91,7 +91,7 @@ public class LevelManager : MonoBehaviour
         //    // blueChat.transform.position += deplacement;
         //}
 
-        if (timerRealChat <= 0)
+        if (timerRealChat <= 0 && !miaoCanBeClicked)
         {
                        
             for(int n=0; n<=listChats.Count-1; n++)
