@@ -25,7 +25,7 @@
 body{
     width: 100%;
     text-align: center;
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
     overflow: overlay;
     /* to hide 2 scrollbar  */
 }
@@ -66,7 +66,7 @@ nav{
     display:flex;
     height:12%;
     font-size: x-large;
-    background-color: rgba(255, 255, 255, 0.24);
+    background-color: rgba(88, 88, 88, 0.24);
 }
 
 nav ul {
@@ -84,7 +84,7 @@ nav ul li a {
     margin: 1% 1rem;
     padding: 1rem;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border-bottom: 4px solid transparent;
     transition: padding-bottom .4s ease-in-out, border-color  .3s ease, color .2s;
 }
@@ -120,14 +120,102 @@ section{
     overflow: overlay;
     width: 85%;
     float:left;
-    padding-top:10%;
+    margin-bottom: 30%;
+}
+
+.container3{
+    overflow: overlay;
+    width: 85%;
+    float:left;
+    padding-top: 10%;
 }
 
 .container img{
     width: 20%;
 }
 
+.upLeft1 {
+    width: 50%;
+    padding-left: 30%;
+    padding-bottom: 5%; 
+}
+
+.upLeft2{
+    width: 50%;
+    padding-left: 30%;
+    padding-bottom: 5%; 
+}
+
+.upRight1{
+    width: 70%;
+}
+
+.upLeft2{
+    width: 50%;
+    padding-left: 300%;
+    padding-bottom: 15%; 
+}
+
+.upRight2{
+    padding-left: 300%;
+}
+
+
+.upRight1, .upRight2{
+    width: 70%;
+}
+
+.secondLineOne1, .secondLineOne2{
+    padding-top: 20%;
+    width: 200%;
+}
+.secondLineThree1, .secondLineThree2{
+    padding-top: 25%;
+    width: 200%;
+    margin-left: -30%;
+}
+
+.secondLineTwo1, .secondLineTwo2{
+    padding-top: 25%;
+    width: 200%;
+    margin-left: -62%;
+}
+
+.secondLineFour1, .secondLineFour2{
+    width: 200%;
+    margin-left: -100%;
+    padding-top: 22%;
+}
+
+.firstLineFour1, .firstLineFour2{
+    padding-top: 30%;
+    margin-left: -5%;
+    width: 200%;
+}
+
+.firstLineThree1, .firstLineThree2{
+    padding-top: 35%;
+    width: 200%;
+    margin-left: -35%;
+}
+
+.firstLineTwo1, .firstLineTwo2{
+    padding-top: 35%;
+    width: 200%;
+    margin-left: -70%;
+}
+
+.firstLineOne1, .firstLineOne2{
+    padding-top: 30%;
+    width: 200%;
+    margin-left: -100%
+}
+
 .container2 img{
+    width: 20%;
+}
+
+.container3 img{
     width: 20%;
 }
 
@@ -150,8 +238,6 @@ section{
     padding-top: 30%;
     padding-left: 4%;
 }
-
-
 
 .homePage, .gamePage{
     margin-left: 9%;
@@ -202,6 +288,7 @@ section{
 }
 
 .containerQuestions{
+    padding-top: 20%;
     display: grid;
     justify-content: center;
     margin: 0% 10%;
@@ -210,6 +297,9 @@ section{
     margin-bottom: 5%;
 }
 
+.upLeft2{
+    margin-top: -20%;
+}
 
 .question{
     font-family: "Cherry";
@@ -273,6 +363,9 @@ section{
     width: 50%;
 }
 
+.veryLastQuestion{
+    margin-bottom: -3%;
+}
 
 /* footer{ 
     margin-top: 10%;
