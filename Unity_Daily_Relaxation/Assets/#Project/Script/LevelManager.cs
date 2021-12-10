@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
     public GameObject targetObjectPanel1;
     public bool activeStatePanel2;
     public GameObject targetObjectPanel2;
+    public AudioSource miao;
 
     private void Awake()
     {
@@ -214,12 +215,14 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("how many correct (win)" + howManyCorrect);
                 Debug.Log("WIIIIIIN");
                 StartCoroutine(StartRestartWin());
+                miao.Play();
             }
             else
             {
                 Debug.Log("how many correct (loose) " + howManyCorrect);
                 Debug.Log("LOOOSE");
                 StartCoroutine(StartRestartLoose());
+                miao.Play();
             }
             stopPause = true;
             
