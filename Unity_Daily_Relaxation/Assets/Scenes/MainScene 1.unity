@@ -1033,7 +1033,7 @@ MonoBehaviour:
   index: 0
   limit: {fileID: 0}
   activeStatePanel1: 0
-  targetObjectPanel1: {fileID: 4572730582868227262, guid: 047a3b173bf34a54e80d7910d017af5c, type: 3}
+  targetObjectPanel1: {fileID: 0}
   activeStatePanel2: 0
   targetObjectPanel2: {fileID: 0}
 --- !u!4 &1856806990
