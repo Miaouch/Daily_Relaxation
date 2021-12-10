@@ -224,19 +224,19 @@ public class LevelManager : MonoBehaviour
             stopPause = true;
             
            
-            //StartCoroutine(StartRestart());
+            // StartCoroutine(StartRestart());
 
             
             Debug.Log(stopPause);
         }
     }
-    IEnumerator StartRestartPause()
-    {
-        Debug.Log("activeStatePanel1");
-        Debug.Log("start the coroutine");
-        yield return new WaitForSeconds(timeToRestart);
-        //Restart();
-    }
+    // IEnumerator StartRestart()
+    // {
+    //     Debug.Log("activeStatePanel1");
+    //     Debug.Log("start the coroutine");
+    //     yield return new WaitForSeconds(timeToRestart);
+    //     Restart();
+    // }
     IEnumerator StartRestartWin()
     {
         activeStatePanel1 = !activeStatePanel1;
@@ -294,11 +294,8 @@ public class LevelManager : MonoBehaviour
     {
         pauseMode = true;
         miaoCanBeClicked = true;
-        for (int j=0; j<speeds.Count; j++)
-        {
-            speeds[j] = Vector3.zero;
-        }
-
+        
+        
         // this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         // this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 
