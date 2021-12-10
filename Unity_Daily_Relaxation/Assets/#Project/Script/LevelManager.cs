@@ -41,9 +41,11 @@ public class LevelManager : MonoBehaviour
     public float timeToRestart = 5f;
 
     private float waitPauseTime = 10f;
-    private float pauseDuration = 5f;
+    //private float pauseDuration = 5f;
     private bool pauseMode = false;
     private bool waitMode = false;
+
+    private bool stopPause;
 
     public bool miaoCanBeClicked = false;
 
@@ -52,6 +54,10 @@ public class LevelManager : MonoBehaviour
     public int index;
 
     public zoneBehavior limit;
+    public bool activeStatePanel1;
+    public GameObject targetObjectPanel1;
+    public bool activeStatePanel2;
+    public GameObject targetObjectPanel2;
 
     private void Awake()
     {
@@ -63,11 +69,10 @@ public class LevelManager : MonoBehaviour
  
     private void Start() 
     {
-
+        targetObjectPanel1.SetActive(activeStatePanel1);
         //Debug.Log(randomZone);
     }
     
-
     private void Update() {
 
         timerRealChat -= Time.deltaTime;
@@ -101,7 +106,7 @@ public class LevelManager : MonoBehaviour
         {
             if (Vector3.Distance(listChats[c].transform.position,randomZone) > (dimensionZone*Mathf.Sqrt(3)/2))
             {             
-                speed[c] = -speed[c];
+                speeds[c] = -speeds[c];
             }
         }
 
@@ -121,7 +126,7 @@ public class LevelManager : MonoBehaviour
                         //Debug.Log("Blue Sphere");
                         miaoRenderer.material = materialsChats[1];
                         Debug.Log("material Chats grey"+ materialsChats[1]);
-                        miaoCanBeClicked = true;
+                        //miaoCanBeClicked = true;
                         
                         if (!pauseMode && !waitMode)
                         {
@@ -208,27 +213,63 @@ public class LevelManager : MonoBehaviour
             {
                 Debug.Log("how many correct (win)" + howManyCorrect);
                 Debug.Log("WIIIIIIN");
-                StartCoroutine(StartRestart());
+                StartCoroutine(StartRestartWin());
             }
             else
             {
                 Debug.Log("how many correct (loose) " + howManyCorrect);
                 Debug.Log("LOOOSE");
-               
+                StartCoroutine(StartRestartLoose());
             }
+            stopPause = true;
+            
+           
+            // StartCoroutine(StartRestart());
+
+            
+            Debug.Log(stopPause);
         }
     }
-
-    IEnumerator StartRestart()
+    // IEnumerator StartRestart()
+    // {
+    //     Debug.Log("activeStatePanel1");
+    //     Debug.Log("start the coroutine");
+    //     yield return new WaitForSeconds(timeToRestart);
+    //     Restart();
+    // }
+    IEnumerator StartRestartWin()
     {
+        activeStatePanel1 = !activeStatePanel1;
+        targetObjectPanel1.SetActive(activeStatePanel1);
+        Debug.Log("activeStatePanel1");
         Debug.Log("start the coroutine");
         yield return new WaitForSeconds(timeToRestart);
-        Restart();
+        RestartWin();
     }
-
-    public void Restart()
+    IEnumerator StartRestartLoose()
+    {
+        activeStatePanel2 = !activeStatePanel2;
+        targetObjectPanel2.SetActive(activeStatePanel2);
+        Debug.Log("activeStatePanel2");
+        Debug.Log("start the coroutine");
+        yield return new WaitForSeconds(timeToRestart);
+        RestartLoose();
+    }
+    // public void Restart()
+    // {
+    //     SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+    // }
+    public void RestartWin()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        activeStatePanel1 = !activeStatePanel1;
+        targetObjectPanel1.SetActive(activeStatePanel1);
+    }
+    public void RestartLoose()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        activeStatePanel2 = !activeStatePanel2;
+        targetObjectPanel2.SetActive(activeStatePanel2);
     }
 
     public void ChangeSpeed(int id)
@@ -245,25 +286,24 @@ public class LevelManager : MonoBehaviour
     {
         waitMode = true;
         yield return new WaitForSeconds(waitPauseTime);
-        StartCoroutine(StartPauseMode());
+        StartPauseMode();
         waitMode = false;       
     }
 
-    IEnumerator StartPauseMode()
+    void  StartPauseMode()
     {
         pauseMode = true;
         miaoCanBeClicked = true;
-        //for (int l=0; l< listChats.Count;l++)
-        //{
-        //    if (listChats[l].name == "BlueChat")
-        //    {
-        //        miaoRenderer = listChats[l].GetComponent<Renderer>();
-        //        miaoRenderer.material = materialsChats[0];
-        //    }
-        //}
-        yield return new WaitForSeconds(pauseDuration);
         
-        StartCoroutine(StartRestart());
+        
+        // this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        // this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        // find the speed before
+        
+
+
+        //StartCoroutine(StartRestartPause());
         pauseMode = false;
     }
 

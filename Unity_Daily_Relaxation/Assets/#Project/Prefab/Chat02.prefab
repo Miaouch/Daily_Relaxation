@@ -190,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7978130451249896586}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.9604909, y: 49.850494, z: -31.201187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2308432485647772986}
@@ -259,3 +259,5 @@ MonoBehaviour:
   highLightMaterial: {fileID: 2100000, guid: a2f371fd87bad3741b23cadcc83d90a1, type: 2}
   levelManager: {fileID: 0}
   chatSelected: 0
+  activeOutline: 0
+  outline: {fileID: 2365021511746164987}
