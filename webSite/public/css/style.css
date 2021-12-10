@@ -116,7 +116,18 @@ section{
     padding-top:10%;
 }
 
+.container2{
+    overflow: overlay;
+    width: 85%;
+    float:left;
+    padding-top:10%;
+}
+
 .container img{
+    width: 20%;
+}
+
+.container2 img{
     width: 20%;
 }
 
@@ -139,6 +150,8 @@ section{
     padding-top: 30%;
     padding-left: 4%;
 }
+
+
 
 .homePage, .gamePage{
     margin-left: 9%;
